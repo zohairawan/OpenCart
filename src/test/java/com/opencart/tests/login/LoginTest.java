@@ -19,10 +19,5 @@ public class LoginTest extends BaseTest {
         String actualAccountPageURL = accountPage.getAccountPageURL();
         String expectedAccountPageURL = "https://tutorialsninja.com/demo/index.php?route=account/account";
         Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

@@ -1,5 +1,6 @@
 package com.opencart.pages;
 
+import com.opencart.constants.Constant;
 import com.opencart.pages.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ public class HomePage extends BasePage {
     private By loginHyperlink = By.xpath("//a[normalize-space()='Login']");
 
     public void open() {
-        driver.get("https://tutorialsninja.com/demo/");
+        driver.get(Constant.URL);
     }
 
     public void clickMyAccountDropdown() {

@@ -1,3 +1,8 @@
+/**
+ * Purpose: Sets up FirefoxDriver by reading the specified options
+ * from the config.properties file
+ */
+
 package com.opencart.utilities.browser;
 
 import com.opencart.utilities.properties.ConfigPropertiesFileReader;

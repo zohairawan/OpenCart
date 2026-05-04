@@ -1,3 +1,8 @@
+/**
+ * Purpose: Assigns WebDriver to a concrete class by reading the browser type
+ * from the config.properties file
+ */
+
 package com.opencart.utilities.browser;
 
 import com.opencart.constants.Constant;

@@ -2,11 +2,9 @@ package com.opencart.tests.base;
 
 import com.opencart.pages.HomePage;
 import com.opencart.utilities.browser.WebDriverSetup;
-import com.opencart.utilities.properties.ConfigPropertiesFileReader;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import java.time.Duration;
 
 public class BaseTest {
 

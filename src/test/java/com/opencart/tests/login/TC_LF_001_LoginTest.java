@@ -6,7 +6,7 @@ import com.opencart.tests.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class TC_LF_001_LoginTest extends BaseTest {
 
     @Test
     public void testLoginWithValidCredentials() {

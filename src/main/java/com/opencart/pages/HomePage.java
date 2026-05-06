@@ -7,13 +7,13 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
-
     private By myAccountIcon = By.xpath("//i[@class='fa fa-user']");
     private By registerHyperlink = By.xpath("//a[normalize-space()='Register']");
     private By loginHyperlink = By.xpath("//a[normalize-space()='Login']");
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
     public void open() {
         driver.get(Constant.URL);

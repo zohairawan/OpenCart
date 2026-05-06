@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class AccountSuccessfullyCreatedPage extends BasePage {
 
+    private By accountSuccessfullyCreatedHeader = By.xpath("//div[@id='content']/h1[normalize-space()='Your Account Has Been Created!']");
+
     public AccountSuccessfullyCreatedPage(WebDriver driver) {
         super(driver);
     }
-
-    private By accountSuccessfullyCreatedHeader = By.xpath("//div[@id='content']/h1[normalize-space()='Your Account Has Been Created!']");
 
     public String getAccountSuccessfullyCreatedHeaderText() {
         return find(accountSuccessfullyCreatedHeader).getText();

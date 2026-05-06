@@ -6,13 +6,13 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
-
     private By emailField = By.xpath("//input[@id='input-email']");
     private By passwordField = By.xpath("//input[@id='input-password']");
     private By loginButton = By.xpath("//input[@value='Login']");
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void enterEmail(String email) {
         set(email, emailField);

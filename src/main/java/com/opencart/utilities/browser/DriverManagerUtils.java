@@ -2,7 +2,7 @@ package com.opencart.utilities.browser;
 
 import org.openqa.selenium.WebDriver;
 
-public class DriverManager {
+public class DriverManagerUtils {
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 

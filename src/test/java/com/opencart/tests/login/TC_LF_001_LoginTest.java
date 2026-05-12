@@ -24,7 +24,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
             Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);
             logger.info("Valid login test passed");
         } catch (AssertionError e) {
-            logger.error("Valid login test failed: " + e.getMessage());
+            logger.error("Valid login test failed: {}", e.getMessage());
             Assert.fail();
         }
     }
@@ -45,7 +45,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
             Assert.assertEquals(actualInvalidUserErrorMsg, expectedInvalidUserErrorMsg);
             logger.info("Invalid login test passed");
         } catch (AssertionError e) {
-            logger.error("Invalid login test failed");
+            logger.error("Invalid login test failed: {}", e.getMessage());
             Assert.fail();
         }
     }

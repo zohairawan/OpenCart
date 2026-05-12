@@ -1,5 +1,6 @@
 package com.opencart.tests.login;
 
+import com.opencart.constants.Constant;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class TC_LF_002_LoginTest extends BaseTest {
         LoginPage loginPage = homePage.goToLoginPage();
 
         logger.info("Authenticating with invalid credentials");
-        loginPage.loginInvalidUser("wrong@demo.com", "wrongpwd");
+        loginPage.loginInvalidUser(Constant.INVALID_EMAIL, Constant.INVALID_PASSWORD);
 
         String expectedInvalidUserErrorMsg = loginPage.INVALID_USER_ERROR_MSG;
         String actualInvalidUserErrorMsg = loginPage.getInvalidUserErrorMsg();

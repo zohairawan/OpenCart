@@ -1,5 +1,6 @@
 package com.opencart.tests.login;
 
+import com.opencart.constants.Constant;
 import com.opencart.pages.AccountPage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
@@ -15,7 +16,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
         LoginPage loginPage = homePage.goToLoginPage();
 
         logger.info("Authenticating with valid credentials");
-        AccountPage accountPage = loginPage.loginValidUser("jd@demo.com", "demo123");
+        AccountPage accountPage = loginPage.loginValidUser(Constant.VALID_EMAIL, Constant.VALID_PASSWORD);
 
         String actualAccountPageURL = accountPage.getAccountPageURL();
         String expectedAccountPageURL = accountPage.URL;

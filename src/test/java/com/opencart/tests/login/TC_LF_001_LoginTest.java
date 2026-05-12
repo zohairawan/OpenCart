@@ -1,9 +1,9 @@
 package com.opencart.tests.login;
 
-import com.opencart.constants.Constant;
 import com.opencart.pages.AccountPage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
+import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +16,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
         LoginPage loginPage = homePage.goToLoginPage();
 
         logger.info("Authenticating with valid credentials");
-        AccountPage accountPage = loginPage.loginValidUser(Constant.VALID_EMAIL, Constant.VALID_PASSWORD);
+        AccountPage accountPage = loginPage.loginValidUser(ConfigPropertiesFileReaderUtils.getValidEmail(), ConfigPropertiesFileReaderUtils.getValidPassword());
 
         logger.info("Retrieving account page URL");
         String actualAccountPageURL = accountPage.getAccountPageURL();

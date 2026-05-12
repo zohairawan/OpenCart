@@ -57,4 +57,20 @@ public class ConfigPropertiesFileReaderUtils {
     public static String getImplicitWaitValue() {
         return getValue("implicitWait");
     }
+
+    public static String getValidEmail() {
+        return getValue("validEmail");
+    }
+
+    public static String getValidPassword() {
+        return getValue("validPassword");
+    }
+
+    public static String getInvalidEmail() {
+        return getValue("invalidEmail");
+    }
+
+    public static String getInvalidPassword() {
+        return getValue("invalidPassword");
+    }
 }

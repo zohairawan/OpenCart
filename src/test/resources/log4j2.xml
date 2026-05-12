@@ -25,7 +25,7 @@
 
     <Loggers>
         <Logger name="com.opencart.tests" level="info" additivity="false">
-            <AppenderRef ref="RollingFile"/>
+            <!--            <AppenderRef ref="RollingFile"/>-->
             <AppenderRef ref="Console"/>
         </Logger>
 

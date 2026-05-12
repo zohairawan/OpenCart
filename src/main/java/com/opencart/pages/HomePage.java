@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
     }
 
     public void open() {
-        logger.debug("Navigating to homepage url: " + Constant.URL);
+        logger.debug("Launching application (url: " + Constant.URL + ")");
         driver.get(Constant.URL);
     }
 

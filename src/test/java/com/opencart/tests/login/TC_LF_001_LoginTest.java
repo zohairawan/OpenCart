@@ -18,10 +18,11 @@ public class TC_LF_001_LoginTest extends BaseTest {
         logger.info("Authenticating with valid credentials");
         AccountPage accountPage = loginPage.loginValidUser(Constant.VALID_EMAIL, Constant.VALID_PASSWORD);
 
+        logger.info("Retrieving account page URL");
         String actualAccountPageURL = accountPage.getAccountPageURL();
         String expectedAccountPageURL = accountPage.URL;
-        logger.info("Validating successful login");
         try {
+            logger.info("Validating successful login");
             Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);
             logger.info("Valid login test passed");
         } catch (AssertionError e) {

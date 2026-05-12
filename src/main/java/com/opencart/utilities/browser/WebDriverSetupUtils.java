@@ -12,9 +12,9 @@ import java.time.Duration;
 
 public class WebDriverSetupUtils {
 
-    public static WebDriver initializeDriverType() {
+    public static WebDriver initializeDriverType(String browser) {
         WebDriver driver;
-        String driverType = ConfigPropertiesFileReaderUtils.getBrowserValue();
+        String driverType = (browser == null) ? ConfigPropertiesFileReaderUtils.getBrowserValue() : browser;
 
         switch (driverType) {
             case Constant.CHROME_BROWSER -> driver = ChromeDriverSetupUtils.initializeChromeDriver();

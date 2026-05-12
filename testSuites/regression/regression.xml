@@ -3,6 +3,7 @@
 
 <suite name="Regression Suite">
     <test name="Regression Test">
+        <parameter name="browser" value="chrome"/>
         <packages>
             <package name="com.opencart.tests.login"/>
         </packages>

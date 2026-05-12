@@ -36,4 +36,9 @@ public class HomePage extends BasePage {
         click(loginLink);
         return new LoginPage(driver);
     }
+
+    public LoginPage goToLoginPage() {
+        clickMyAccountDropdown();
+        return clickLoginLink();
+    }
 }

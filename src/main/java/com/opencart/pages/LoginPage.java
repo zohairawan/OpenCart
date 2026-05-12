@@ -26,4 +26,10 @@ public class LoginPage extends BasePage {
         click(loginButton);
         return new AccountPage(driver);
     }
+
+    public AccountPage loginUser(String email, String password) {
+        enterEmail(email);
+        enterPassword(password);
+        return clickLoginButton();
+    }
 }

@@ -29,9 +29,19 @@ public class LoginPage extends BasePage {
         return new AccountPage(driver);
     }
 
-    public AccountPage loginUser(String email, String password) {
+    public AccountPage loginValidUser(String email, String password) {
         enterEmail(email);
         enterPassword(password);
         return clickLoginButton();
+    }
+
+    public void loginInvalidUser(String email, String password) {
+        enterEmail(email);
+        enterPassword(password);
+        clickLoginButton();
+    }
+
+    public String getInvalidUserErrorMsg() {
+        return find(invalidUserErrorMsgLoc).getText();
     }
 }

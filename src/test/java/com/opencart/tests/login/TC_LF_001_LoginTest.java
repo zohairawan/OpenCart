@@ -12,12 +12,11 @@ public class TC_LF_001_LoginTest extends BaseTest {
     public void testLoginWithValidCredentials() {
         logger.info("Starting valid login test");
         homePage.open();
-        homePage.clickMyAccountDropdown();
-        LoginPage loginPage = homePage.clickLoginLink();
+        LoginPage loginPage = homePage.goToLoginPage();
+
         logger.info("Authenticating with valid credentials");
-        loginPage.enterEmail("jd@demo.com");
-        loginPage.enterPassword("demo123");
-        AccountPage accountPage = loginPage.clickLoginButton();
+        AccountPage accountPage = loginPage.loginValidUser("jd@demo.com", "demo123");
+
         String actualAccountPageURL = accountPage.getAccountPageURL();
         String expectedAccountPageURL = accountPage.URL;
         logger.info("Validating successful login");

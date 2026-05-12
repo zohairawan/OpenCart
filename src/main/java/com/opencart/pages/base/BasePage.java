@@ -1,7 +1,7 @@
 package com.opencart.pages.base;
 
 import com.opencart.utilities.logger.LogManagerUtils;
-import com.opencart.utilities.methods.CommonMethods;
+import com.opencart.utilities.methods.CommonMethodsUtils;
 import com.opencart.utilities.methods.JavascriptUtils;
 import com.opencart.utilities.methods.WaitUtils;
 import org.apache.logging.log4j.Logger;
@@ -13,14 +13,14 @@ import java.util.List;
 public abstract class BasePage {
 
     protected WebDriver driver;
-    protected CommonMethods commonMethods;
+    protected CommonMethodsUtils commonMethodsUtils;
     protected JavascriptUtils javascript;
     protected WaitUtils wait;
     protected final Logger logger;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        commonMethods = new CommonMethods(driver);
+        commonMethodsUtils = new CommonMethodsUtils(driver);
         this.javascript = new JavascriptUtils(driver);
         wait = new WaitUtils(driver);
         logger = LogManagerUtils.getLogger(this.getClass());

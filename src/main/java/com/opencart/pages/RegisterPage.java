@@ -6,10 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterPage extends BasePage {
 
-    public RegisterPage(WebDriver driver) {
-        super(driver);
-    }
-
     private By firstNameField = By.xpath("//input[@id='input-firstname']");
     private By lastNameField = By.xpath("//input[@id='input-lastname']");
     private By emailField = By.xpath("//input[@id='input-email']");
@@ -18,6 +14,10 @@ public class RegisterPage extends BasePage {
     private By passwordConfirmField = By.xpath("//input[@id='input-confirm']");
     private By privacyPolicyCheckbox = By.xpath("//input[@name='agree']");
     private By continueButton = By.xpath("//input[@type='submit']");
+
+    public RegisterPage(WebDriver driver) {
+        super(driver);
+    }
 
     public AccountSuccessfullyCreatedPage registerUser(String firstName, String lastName, String email, String telephoneNumber, String password, String confirmPassword) {
         enterFirstName(firstName);

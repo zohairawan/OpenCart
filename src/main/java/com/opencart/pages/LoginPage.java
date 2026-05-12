@@ -17,14 +17,17 @@ public class LoginPage extends BasePage {
     }
 
     public void enterEmail(String email) {
+        logger.debug("Entering email");
         set(email, emailField);
     }
 
     public void enterPassword(String password) {
+        logger.debug("Entering password");
         set(password, passwordField);
     }
 
     public AccountPage clickLoginButton() {
+        logger.debug("Clicking login button");
         click(loginButton);
         return new AccountPage(driver);
     }

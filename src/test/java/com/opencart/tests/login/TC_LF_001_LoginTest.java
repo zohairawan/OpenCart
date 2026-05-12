@@ -19,7 +19,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
         loginPage.enterPassword("demo123");
         AccountPage accountPage = loginPage.clickLoginButton();
         String actualAccountPageURL = accountPage.getAccountPageURL();
-        String expectedAccountPageURL = "https://tutorialsninja.com/demo/index.php?route=account/account";
+        String expectedAccountPageURL = accountPage.URL;
         logger.info("Validating successful login");
         try {
             Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);

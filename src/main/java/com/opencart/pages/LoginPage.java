@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
 
+    public final String INVALID_USER_ERROR_MSG = "Warning: No match for E-Mail Address and/or Password.";
+    private By invalidUserErrorMsgLoc = By.xpath("//div[normalize-space()='Warning: No match for E-Mail Address and/or Password.']");
     private By emailField = By.xpath("//input[@id='input-email']");
     private By passwordField = By.xpath("//input[@id='input-password']");
     private By loginButton = By.xpath("//input[@value='Login']");

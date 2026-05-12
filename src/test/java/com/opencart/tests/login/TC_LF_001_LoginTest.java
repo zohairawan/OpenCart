@@ -19,9 +19,14 @@ public class TC_LF_001_LoginTest extends BaseTest {
         loginPage.enterPassword("demo123");
         AccountPage accountPage = loginPage.clickLoginButton();
         String actualAccountPageURL = accountPage.getAccountPageURL();
-        String expectedAccountPageURL = "https://tutorialsninja.com/demo/index.php?route=account/account";
+        String expectedAccountPageURL = "https://tutorialsninja.com/demo/index.php?route=account/accoun";
         logger.info("Validating successful login");
-        Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);
+        try {
+            Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);
+        } catch (AssertionError e) {
+            logger.error("Valid login test failed: " + e.getMessage());
+            Assert.fail();
+        }
         logger.info("Valid login test passed");
     }
 }

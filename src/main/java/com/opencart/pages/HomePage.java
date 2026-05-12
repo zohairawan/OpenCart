@@ -8,28 +8,32 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BasePage {
 
     private By myAccountIcon = By.xpath("//i[@class='fa fa-user']");
-    private By registerHyperlink = By.xpath("//a[normalize-space()='Register']");
-    private By loginHyperlink = By.xpath("//a[normalize-space()='Login']");
+    private By registerLink = By.xpath("//a[normalize-space()='Register']");
+    private By loginLink = By.xpath("//a[normalize-space()='Login']");
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     public void open() {
+        logger.debug("Navigating to homepage url: " + Constant.URL);
         driver.get(Constant.URL);
     }
 
     public void clickMyAccountDropdown() {
+        logger.debug("Clicking my account dropdown");
         click(myAccountIcon);
     }
 
-    public RegisterPage clickRegisterHyperlink() {
-        click(registerHyperlink);
+    public RegisterPage clickRegisterLink() {
+        logger.debug("Clicking register link");
+        click(registerLink);
         return new RegisterPage(driver);
     }
 
-    public LoginPage clickLoginHyperlink() {
-        click(loginHyperlink);
+    public LoginPage clickLoginLink() {
+        logger.debug("Clicking login link");
+        click(loginLink);
         return new LoginPage(driver);
     }
 }

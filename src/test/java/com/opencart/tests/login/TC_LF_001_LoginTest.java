@@ -10,14 +10,18 @@ public class TC_LF_001_LoginTest extends BaseTest {
 
     @Test
     public void testLoginWithValidCredentials() {
+        logger.info("Starting valid login test");
         homePage.open();
         homePage.clickMyAccountDropdown();
-        LoginPage loginPage = homePage.clickLoginHyperlink();
+        LoginPage loginPage = homePage.clickLoginLink();
+        logger.info("Authenticating with valid credentials");
         loginPage.enterEmail("jd@demo.com");
         loginPage.enterPassword("demo123");
         AccountPage accountPage = loginPage.clickLoginButton();
         String actualAccountPageURL = accountPage.getAccountPageURL();
         String expectedAccountPageURL = "https://tutorialsninja.com/demo/index.php?route=account/account";
+        logger.info("Validating successful login");
         Assert.assertEquals(actualAccountPageURL, expectedAccountPageURL);
+        logger.info("Valid login test passed");
     }
 }

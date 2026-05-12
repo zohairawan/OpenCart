@@ -19,7 +19,6 @@ public class WebDriverSetupUtils {
         switch (driverType) {
             case Constant.CHROME_BROWSER -> driver = ChromeDriverSetupUtils.initializeChromeDriver();
             case Constant.FIREFOX_BROWSER -> driver = FirefoxDriverSetupUtils.initializeFirefoxDriver();
-            //todo add log
             case null, default -> throw new RuntimeException("======= INVALID BROWSER TYPE PROVIDED =======");
         }
 

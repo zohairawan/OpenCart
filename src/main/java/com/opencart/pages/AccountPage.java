@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 public class AccountPage extends BasePage {
 
     public final String URL = "https://tutorialsninja.com/demo/index.php?route=account/account";
-    private By myAccountHeader = By.xpath("//div[@id='content']/h2[normalize-space()='My Account']");
-    private By logoutLink = By.xpath("//a[@class and normalize-space()='Logout']");
+    private final By myAccountHeader = By.xpath("//div[@id='content']/h2[normalize-space()='My Account']");
+    private final By logoutLink = By.xpath("//a[@class and normalize-space()='Logout']");
 
     public AccountPage(WebDriver driver) {
         super(driver);

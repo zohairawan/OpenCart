@@ -30,6 +30,5 @@ public class FirefoxDriverSetupUtils {
         }
 
         return new FirefoxDriver(firefoxOptions);
-
     }
 }

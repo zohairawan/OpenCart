@@ -27,10 +27,8 @@ public class ConfigPropertiesFileReaderUtils {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {
-            //todo add log
             throw new RuntimeException("======= FILE DOES NOT EXIST OR INCORRECT PATH TO FILE PROVIDED =======", e);
         } catch (IOException e) {
-            //todo add log
             throw new RuntimeException("======= ERROR OCCURRED WHILE READING FROM FILE =======", e);
         }
     }
@@ -38,7 +36,6 @@ public class ConfigPropertiesFileReaderUtils {
     private static String getValue(String key) {
         String value = properties.getProperty(key);
         if (value == null) {
-            //todo add log
             throw new RuntimeException("Key [" + key + "] not found in config.properties file");
         } else {
             return value;
@@ -59,5 +56,21 @@ public class ConfigPropertiesFileReaderUtils {
 
     public static String getImplicitWaitValue() {
         return getValue("implicitWait");
+    }
+
+    public static String getValidEmail() {
+        return getValue("validEmail");
+    }
+
+    public static String getValidPassword() {
+        return getValue("validPassword");
+    }
+
+    public static String getInvalidEmail() {
+        return getValue("invalidEmail");
+    }
+
+    public static String getInvalidPassword() {
+        return getValue("invalidPassword");
     }
 }

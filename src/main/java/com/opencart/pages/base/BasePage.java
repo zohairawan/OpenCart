@@ -35,6 +35,7 @@ public abstract class BasePage {
     }
 
     protected void set(String text, By locator) {
+        find(locator).clear();
         find(locator).sendKeys(text);
     }
 

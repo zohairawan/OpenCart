@@ -8,7 +8,6 @@ package com.opencart.utilities.browser;
 import com.opencart.constants.Constant;
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.WebDriver;
-import java.time.Duration;
 
 public class WebDriverSetupUtils {
 

@@ -14,7 +14,7 @@ import java.util.Properties;
 
 public class ConfigPropertiesFileReaderUtils {
 
-    private static Properties properties;
+    private static final Properties properties;
 
     /*
      * Static Block:

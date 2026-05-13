@@ -9,6 +9,7 @@ import com.opencart.constants.Constant;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigPropertiesFileReaderUtils {
@@ -23,7 +24,7 @@ public class ConfigPropertiesFileReaderUtils {
      * - getProperty() is called, it does it once at class load time
      */
     static {
-        try(FileInputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH)) {
+        try (InputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH)) {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {

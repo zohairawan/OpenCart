@@ -35,7 +35,12 @@ public abstract class BasePage {
     }
 
     protected void set(String text, By locator) {
-        find(locator).clear();
+        wait.waitForElementToBeVisible(locator).clear();
+        find(locator).sendKeys(text);
+    }
+
+    protected void set(String text, By locator, long waitTimeInSeconds) {
+        wait.waitForElementToBeVisible(locator, waitTimeInSeconds).clear();
         find(locator).sendKeys(text);
     }
 

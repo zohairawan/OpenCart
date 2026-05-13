@@ -13,8 +13,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class FirefoxDriverSetupUtils {
 
     public static WebDriver initializeFirefoxDriver() {
-        boolean isHeadless = Boolean.parseBoolean(ConfigPropertiesFileReaderUtils.getHeadLessValue());
-        boolean isIncognito = Boolean.parseBoolean(ConfigPropertiesFileReaderUtils.getIncognitoValue());
+        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadLessValue();
+        boolean isIncognito = ConfigPropertiesFileReaderUtils.getIncognitoValue();
 
         if (!isHeadless && !isIncognito) {
             return new FirefoxDriver();

@@ -47,12 +47,12 @@ public class ConfigPropertiesFileReaderUtils {
         return getValue("browser");
     }
 
-    public static String getHeadLessValue() {
-        return getValue("headless");
+    public static boolean getHeadLessValue() {
+        return Boolean.parseBoolean(getValue("headless"));
     }
 
-    public static String getIncognitoValue() {
-        return getValue("incognito");
+    public static boolean getIncognitoValue() {
+        return Boolean.parseBoolean(getValue("incognito"));
     }
 
     public static long getExplicitWaitInSeconds() {

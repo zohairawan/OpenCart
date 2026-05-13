@@ -17,12 +17,17 @@ public class WaitUtils {
         this.driver = driver;
     }
 
-    public void waitForElementToBeClickable(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    public WebElement waitForElementToBeVisible(By locator, long waitTimeInSeconds) {
+        return getWaitObject(waitTimeInSeconds).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public void waitForElementToBeClickable(By locator, int seconds) {
-        getWait(seconds).until(ExpectedConditions.elementToBeClickable(locator));
+    public WebElement waitForElementToBeVisible(By locator) {
+        return getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public WebElement waitForElementToBeClickable(By locator, long waitTimeInSeconds) {
+        return getWaitObject(waitTimeInSeconds).until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public WebElement waitForElementToBeClickable(By locator) {

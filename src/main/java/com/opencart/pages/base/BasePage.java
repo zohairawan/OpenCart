@@ -40,6 +40,10 @@ public abstract class BasePage {
     }
 
     protected void click(By locator) {
-        find(locator).click();
+        wait.waitForElementToBeClickable(locator).click();
+    }
+
+    protected void click(By locator, long waitTimeInSeconds) {
+        wait.waitForElementToBeClickable(locator, waitTimeInSeconds).click();
     }
 }

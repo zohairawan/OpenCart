@@ -22,7 +22,6 @@ public class WebDriverSetupUtils {
             case null, default -> throw new RuntimeException("======= INVALID BROWSER TYPE PROVIDED =======");
         }
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(ConfigPropertiesFileReaderUtils.getImplicitWaitValue())));
         driver.manage().window().maximize();
         return driver;
     }

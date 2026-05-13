@@ -55,8 +55,8 @@ public class ConfigPropertiesFileReaderUtils {
         return getValue("incognito");
     }
 
-    public static String getImplicitWaitValue() {
-        return getValue("implicitWait");
+    public static long getExplicitWaitInSeconds() {
+        return Long.parseLong(getValue("explicitWait"));
     }
 
     public static String getValidEmail() {

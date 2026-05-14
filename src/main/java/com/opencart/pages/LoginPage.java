@@ -16,12 +16,12 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void enterEmail(String email) {
+    private void enterEmail(String email) {
         logger.debug("Entering email");
         set(email, emailField);
     }
 
-    public void enterPassword(String password) {
+    private void enterPassword(String password) {
         logger.debug("Entering password");
         set(password, passwordField);
     }

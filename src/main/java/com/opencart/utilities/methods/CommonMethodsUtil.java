@@ -3,11 +3,11 @@ package com.opencart.utilities.methods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CommonMethodsUtils {
+public class CommonMethodsUtil {
 
     private final WebDriver driver;
 
-    public CommonMethodsUtils(WebDriver driver) {
+    public CommonMethodsUtil(WebDriver driver) {
         this.driver = driver;
     }
 

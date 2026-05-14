@@ -5,16 +5,16 @@
 
 package com.opencart.utilities.browser;
 
-import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
+import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ChromeDriverSetupUtils {
+public class ChromeDriverSetupUtil {
 
     public static WebDriver initializeChromeDriver() {
-        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadLessValue();
-        boolean isIncognito = ConfigPropertiesFileReaderUtils.getIncognitoValue();
+        boolean isHeadless = ConfigPropertiesFileReaderUtil.getHeadLessValue();
+        boolean isIncognito = ConfigPropertiesFileReaderUtil.getIncognitoValue();
 
         if (!isHeadless && !isIncognito) {
             return new ChromeDriver();

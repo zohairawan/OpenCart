@@ -51,11 +51,11 @@ public class LoginPage extends BasePage {
 
     public String getEmailFieldPlaceholderText() {
         logger.debug("Getting placeholder text for email field");
-        return commonMethodsUtils.getPlaceholderText(emailField);
+        return commonMethodsUtil.getPlaceholderText(emailField);
     }
 
     public String getPasswordFieldPlaceholderText() {
         logger.debug("Getting placeholder text for password field");
-        return commonMethodsUtils.getPlaceholderText(passwordField);
+        return commonMethodsUtil.getPlaceholderText(passwordField);
     }
 }

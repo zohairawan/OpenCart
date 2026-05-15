@@ -6,7 +6,7 @@ public class DriverManagerUtils {
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
-    public static void setDriverToThreadLocal(WebDriver driver) {
+    public static void createThreadLocalDriver(WebDriver driver) {
         driverThreadLocal.set(driver);
     }
 
@@ -14,7 +14,7 @@ public class DriverManagerUtils {
         return driverThreadLocal.get();
     }
 
-    public static void unloadDriverThreadLocal() {
+    public static void unloadThreadLocalDriver() {
         driverThreadLocal.remove();
     }
 }

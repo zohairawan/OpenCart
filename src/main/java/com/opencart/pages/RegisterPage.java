@@ -6,14 +6,14 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterPage extends BasePage {
 
-    private By firstNameField = By.xpath("//input[@id='input-firstname']");
-    private By lastNameField = By.xpath("//input[@id='input-lastname']");
-    private By emailField = By.xpath("//input[@id='input-email']");
-    private By telephoneNumberField = By.xpath("//input[@id='input-telephone']");
-    private By passwordField = By.xpath("//input[@id='input-password']");
-    private By passwordConfirmField = By.xpath("//input[@id='input-confirm']");
-    private By privacyPolicyCheckbox = By.xpath("//input[@name='agree']");
-    private By continueButton = By.xpath("//input[@type='submit']");
+    private final By firstNameField = By.xpath("//input[@id='input-firstname']");
+    private final By lastNameField = By.xpath("//input[@id='input-lastname']");
+    private final By emailField = By.xpath("//input[@id='input-email']");
+    private final By telephoneNumberField = By.xpath("//input[@id='input-telephone']");
+    private final By passwordField = By.xpath("//input[@id='input-password']");
+    private final By passwordConfirmField = By.xpath("//input[@id='input-confirm']");
+    private final By privacyPolicyCheckbox = By.xpath("//input[@name='agree']");
+    private final By continueButton = By.xpath("//input[@type='submit']");
 
     public RegisterPage(WebDriver driver) {
         super(driver);

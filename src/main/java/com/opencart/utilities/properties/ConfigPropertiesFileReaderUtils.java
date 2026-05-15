@@ -9,11 +9,12 @@ import com.opencart.constants.Constant;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigPropertiesFileReaderUtils {
 
-    private static Properties properties;
+    private static final Properties properties;
 
     /*
      * Static Block:
@@ -23,7 +24,7 @@ public class ConfigPropertiesFileReaderUtils {
      * - getProperty() is called, it does it once at class load time
      */
     static {
-        try(FileInputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH)) {
+        try (InputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH)) {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {
@@ -46,16 +47,16 @@ public class ConfigPropertiesFileReaderUtils {
         return getValue("browser");
     }
 
-    public static String getHeadLessValue() {
-        return getValue("headless");
+    public static boolean getHeadLessValue() {
+        return Boolean.parseBoolean(getValue("headless"));
     }
 
-    public static String getIncognitoValue() {
-        return getValue("incognito");
+    public static boolean getIncognitoValue() {
+        return Boolean.parseBoolean(getValue("incognito"));
     }
 
-    public static String getImplicitWaitValue() {
-        return getValue("implicitWait");
+    public static long getExplicitWaitInSeconds() {
+        return Long.parseLong(getValue("explicitWait"));
     }
 
     public static String getValidEmail() {

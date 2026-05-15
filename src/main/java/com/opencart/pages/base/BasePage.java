@@ -14,15 +14,15 @@ public abstract class BasePage {
 
     protected WebDriver driver;
     protected CommonMethodsUtils commonMethodsUtils;
-    protected JavascriptUtils javascript;
-    protected WaitUtils wait;
+    protected JavascriptUtils javascriptUtils;
+    protected WaitUtils waitUtils;
     protected final Logger logger;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         commonMethodsUtils = new CommonMethodsUtils(driver);
-        this.javascript = new JavascriptUtils(driver);
-        wait = new WaitUtils(driver);
+        this.javascriptUtils = new JavascriptUtils(driver);
+        waitUtils = new WaitUtils(driver);
         logger = LogManagerUtils.getLogger(this.getClass());
     }
 
@@ -35,10 +35,20 @@ public abstract class BasePage {
     }
 
     protected void set(String text, By locator) {
+        waitUtils.waitForElementToBeVisible(locator).clear();
+        find(locator).sendKeys(text);
+    }
+
+    protected void set(String text, By locator, long waitTimeInSeconds) {
+        waitUtils.waitForElementToBeVisible(locator, waitTimeInSeconds).clear();
         find(locator).sendKeys(text);
     }
 
     protected void click(By locator) {
-        find(locator).click();
+        waitUtils.waitForElementToBeClickable(locator).click();
+    }
+
+    protected void click(By locator, long waitTimeInSeconds) {
+        waitUtils.waitForElementToBeClickable(locator, waitTimeInSeconds).click();
     }
 }

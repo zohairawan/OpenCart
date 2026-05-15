@@ -10,21 +10,21 @@ public class TC_LF_002_LoginTest extends BaseTest {
 
     @Test
     public void testLoginWithInvalidCredentials() {
-        logger.info("Starting invalid login test");
+        loggerUtil.info("Starting invalid login test");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
 
-        logger.info("Authenticating with invalid credentials");
+        loggerUtil.info("Authenticating with invalid credentials");
         loginPage.loginInvalidUser(ConfigPropertiesFileReaderUtils.getInvalidEmail(), ConfigPropertiesFileReaderUtils.getInvalidPassword());
 
         String expectedInvalidUserErrorMsg = loginPage.INVALID_USER_ERROR_MSG;
         String actualInvalidUserErrorMsg = loginPage.getInvalidUserErrorMsg();
-        logger.info("Validating error message");
+        loggerUtil.info("Validating error message");
         try {
             Assert.assertEquals(actualInvalidUserErrorMsg, expectedInvalidUserErrorMsg);
-            logger.info("Invalid login test passed");
+            loggerUtil.info("Invalid login test passed");
         } catch (AssertionError e) {
-            logger.error("Invalid login test failed: {}", e.getMessage());
+            loggerUtil.error("Invalid login test failed: {}", e.getMessage());
             Assert.fail();
         }
     }

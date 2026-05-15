@@ -14,23 +14,26 @@ import org.testng.annotations.Parameters;
 public abstract class BaseTest {
 
     protected HomePage homePage;
-    protected final Logger logger = LogManagerUtils.getLogger(this.getClass());
+    protected final Logger loggerUtil = LogManagerUtils.getLogger(this.getClass());
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
-    public void setup(@Optional String browser) {
+    public void setupTest(@Optional String browser) {
+        loggerUtil.info("Initializing browser type");
         WebDriver driver = WebDriverSetupUtils.initializeDriverType(browser);
-        DriverManagerUtils.setDriverToThreadLocal(driver);
+        loggerUtil.info("Making browser thread-safe");
+        DriverManagerUtils.createThreadLocalDriver(driver);
         homePage = new HomePage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    public void tearDownTest() {
+        loggerUtil.info("Closing browser");
         WebDriver driver = DriverManagerUtils.getThreadLocalDriver();
         if (driver != null) {
             driver.quit();
         }
 
-        DriverManagerUtils.unloadDriverThreadLocal();
+        DriverManagerUtils.unloadThreadLocalDriver();
     }
 }

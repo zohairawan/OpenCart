@@ -1,30 +1,41 @@
 package com.opencart.utilities.methods;
 
+import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class WaitUtils {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final long DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS = ConfigPropertiesFileReaderUtils.getExplicitWaitInSeconds();
+    private final WebDriver driver;
 
     public WaitUtils(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
-    public void waitForElementToBeClickable(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    public WebElement waitForElementToBeVisible(By locator, long waitTimeInSeconds) {
+        return getWaitObject(waitTimeInSeconds).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public void waitForElementToBeClickable(By locator, int seconds) {
-        getWait(seconds).until(ExpectedConditions.elementToBeClickable(locator));
+    public WebElement waitForElementToBeVisible(By locator) {
+        return getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    private WebDriverWait getWait(int seconds) {
-        return new WebDriverWait(driver, Duration.ofSeconds(seconds));
+    public WebElement waitForElementToBeClickable(By locator, long waitTimeInSeconds) {
+        return getWaitObject(waitTimeInSeconds).until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public WebElement waitForElementToBeClickable(By locator) {
+        return getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
+                .until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    private WebDriverWait getWaitObject(long waitTimeInSeconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(waitTimeInSeconds));
     }
 }

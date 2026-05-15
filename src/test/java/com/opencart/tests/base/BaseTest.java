@@ -22,7 +22,7 @@ public abstract class BaseTest {
         loggerUtil.info("Initializing browser type");
         WebDriver driver = WebDriverSetupUtil.initializeDriverType(browser);
         loggerUtil.info("Making browser thread-safe");
-        DriverManagerUtil.setDriverToThreadLocal(driver);
+        DriverManagerUtil.createThreadLocalDriver(driver);
         homePage = new HomePage(driver);
     }
 
@@ -34,6 +34,6 @@ public abstract class BaseTest {
             driver.quit();
         }
 
-        DriverManagerUtil.unloadDriverThreadLocal();
+        DriverManagerUtil.unloadThreadLocalDriver();
     }
 }

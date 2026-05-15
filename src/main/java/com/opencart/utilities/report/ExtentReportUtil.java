@@ -18,7 +18,7 @@ public class ExtentReportUtil {
             String extentReportPath = Constant.EXTENT_REPORT_PATH + "ExtentReport_" + timestamp + ".html";
 
             ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(extentReportPath);
-            extentSparkReport.config().setDocumentTitle("Automation Test Report");
+            extentSparkReport.config().setDocumentTitle("OpenCart Automation Test Report");
             extentSparkReport.config().setReportName("Test Execution Report");
 
             extentReport = new ExtentReports();

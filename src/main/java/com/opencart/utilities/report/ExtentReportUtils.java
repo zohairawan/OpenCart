@@ -7,7 +7,7 @@ import com.opencart.constants.Constant;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExtentReportUtil {
+public class ExtentReportUtils {
 
     private static ExtentReports extentReport = null;
     private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();

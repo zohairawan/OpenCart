@@ -1,9 +1,9 @@
 package com.opencart.pages.base;
 
-import com.opencart.utilities.logger.LogManagerUtil;
-import com.opencart.utilities.methods.CommonMethodsUtil;
-import com.opencart.utilities.methods.JavascriptUtil;
-import com.opencart.utilities.methods.WaitUtil;
+import com.opencart.utilities.logger.LogManagerUtils;
+import com.opencart.utilities.methods.CommonMethodsUtils;
+import com.opencart.utilities.methods.JavascriptUtils;
+import com.opencart.utilities.methods.WaitUtils;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,17 +13,17 @@ import java.util.List;
 public abstract class BasePage {
 
     protected WebDriver driver;
-    protected CommonMethodsUtil commonMethodsUtil;
-    protected JavascriptUtil javascriptUtil;
-    protected WaitUtil waitUtil;
+    protected CommonMethodsUtils commonMethodsUtils;
+    protected JavascriptUtils javascriptUtils;
+    protected WaitUtils waitUtils;
     protected final Logger logger;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        commonMethodsUtil = new CommonMethodsUtil(driver);
-        this.javascriptUtil = new JavascriptUtil(driver);
-        waitUtil = new WaitUtil(driver);
-        logger = LogManagerUtil.getLogger(this.getClass());
+        commonMethodsUtils = new CommonMethodsUtils(driver);
+        this.javascriptUtils = new JavascriptUtils(driver);
+        waitUtils = new WaitUtils(driver);
+        logger = LogManagerUtils.getLogger(this.getClass());
     }
 
     protected WebElement find(By locator) {
@@ -35,20 +35,20 @@ public abstract class BasePage {
     }
 
     protected void set(String text, By locator) {
-        waitUtil.waitForElementToBeVisible(locator).clear();
+        waitUtils.waitForElementToBeVisible(locator).clear();
         find(locator).sendKeys(text);
     }
 
     protected void set(String text, By locator, long waitTimeInSeconds) {
-        waitUtil.waitForElementToBeVisible(locator, waitTimeInSeconds).clear();
+        waitUtils.waitForElementToBeVisible(locator, waitTimeInSeconds).clear();
         find(locator).sendKeys(text);
     }
 
     protected void click(By locator) {
-        waitUtil.waitForElementToBeClickable(locator).click();
+        waitUtils.waitForElementToBeClickable(locator).click();
     }
 
     protected void click(By locator, long waitTimeInSeconds) {
-        waitUtil.waitForElementToBeClickable(locator, waitTimeInSeconds).click();
+        waitUtils.waitForElementToBeClickable(locator, waitTimeInSeconds).click();
     }
 }

@@ -6,18 +6,18 @@
 package com.opencart.utilities.browser;
 
 import com.opencart.constants.Constant;
-import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtil;
+import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.WebDriver;
 
-public class WebDriverSetupUtil {
+public class WebDriverSetupUtils {
 
     public static WebDriver initializeDriverType(String browser) {
         WebDriver driver;
-        String driverType = (browser == null) ? ConfigPropertiesFileReaderUtil.getBrowserValue() : browser;
+        String driverType = (browser == null) ? ConfigPropertiesFileReaderUtils.getBrowserValue() : browser;
 
         switch (driverType.toLowerCase()) {
-            case Constant.CHROME_BROWSER -> driver = ChromeDriverSetupUtil.initializeChromeDriver();
-            case Constant.FIREFOX_BROWSER -> driver = FirefoxDriverSetupUtil.initializeFirefoxDriver();
+            case Constant.CHROME_BROWSER -> driver = ChromeDriverSetupUtils.initializeChromeDriver();
+            case Constant.FIREFOX_BROWSER -> driver = FirefoxDriverSetupUtils.initializeFirefoxDriver();
             case null, default -> throw new RuntimeException("======= INVALID BROWSER TYPE PROVIDED =======");
         }
 

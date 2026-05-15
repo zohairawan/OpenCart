@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ConfigPropertiesFileReaderUtil {
+public class ConfigPropertiesFileReaderUtils {
 
     private static final Properties properties;
 

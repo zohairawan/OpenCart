@@ -5,16 +5,16 @@
 
 package com.opencart.utilities.browser;
 
-import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtil;
+import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class FirefoxDriverSetupUtil {
+public class FirefoxDriverSetupUtils {
 
     public static WebDriver initializeFirefoxDriver() {
-        boolean isHeadless = ConfigPropertiesFileReaderUtil.getHeadLessValue();
-        boolean isIncognito = ConfigPropertiesFileReaderUtil.getIncognitoValue();
+        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadLessValue();
+        boolean isIncognito = ConfigPropertiesFileReaderUtils.getIncognitoValue();
 
         if (!isHeadless && !isIncognito) {
             return new FirefoxDriver();

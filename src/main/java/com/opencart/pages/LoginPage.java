@@ -29,7 +29,6 @@ public class LoginPage extends BasePage {
     public AccountPage clickLoginButton() {
         logger.debug("Clicking login button");
         click(loginButton);
-        logger.debug("Navigating to Account page");
         return new AccountPage(driver);
     }
 

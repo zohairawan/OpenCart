@@ -10,6 +10,15 @@ import java.util.Date;
 public class ExtentReportUtils {
 
     private static ExtentReports extentReport = null;
+    /*
+     * Why static?
+     * The WebDriver value stored inside ThreadLocal is isolated per thread,
+     * meaning each thread gets its own independent ExtentTest instance
+     * even though the ThreadLocal itself is shared
+     * ThreadLocal = locker room
+     * Locker contains ExtentTest specific to that thread
+     * Threads can access any locker room (ThreadLocal)
+     */
     private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     public static ExtentReports createAndReturnExtentReport() {

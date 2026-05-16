@@ -1,6 +1,7 @@
-/**
- * Purpose: This class will read the key from the config.properties file
- *          and return the associated value
+/*
+ * Purpose:
+ * - This class will read the key from the config.properties file
+ *   and return the associated value
  */
 
 package com.opencart.utilities.properties;

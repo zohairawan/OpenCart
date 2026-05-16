@@ -1,10 +1,15 @@
+/*
+ * Purpose:
+ * - Contains all the methods/fields that all tests require
+ * - It's abstract because there should be no reason to create an object,
+ *   it only serves as a collection of methods/fields to be reused by pages
+ */
+
 package com.opencart.tests.base;
 
 import com.opencart.pages.HomePage;
 import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.browser.WebDriverSetupUtils;
-import com.opencart.utilities.logger.LogManagerUtils;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

@@ -1,3 +1,10 @@
+/*
+ * Purpose:
+ * - Runs specified actions based on test events
+ * - Creates report on test start
+ * - Captures screenshot on test fail
+ */
+
 package com.opencart.listener;
 
 import com.opencart.utilities.report.ExtentReportUtils;

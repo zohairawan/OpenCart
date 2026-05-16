@@ -28,8 +28,13 @@
             <AppenderRef ref="RollingFile"/>
         </Logger>
 
+        <Logger name="com.opencart.utilities" level="debug" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+
         <Root level="error">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
         </Root>
     </Loggers>
 </Configuration>

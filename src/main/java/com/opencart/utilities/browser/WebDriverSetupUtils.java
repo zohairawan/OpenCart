@@ -11,21 +11,20 @@ import com.opencart.utilities.logger.LogManagerUtils;
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import java.lang.annotation.AnnotationTypeMismatchException;
 
 public class WebDriverSetupUtils {
 
     public static WebDriver initializeDriverType(String browser) {
         WebDriver driver;
-        String driverType = (browser == null) ? ConfigPropertiesFileReaderUtils.getBrowserValue() : browser;
+        browser = (browser == null) ? ConfigPropertiesFileReaderUtils.getBrowserValue() : browser;
 
         Logger loggerUtil = LogManagerUtils.getLogger(WebDriverSetupUtils.class);
-        loggerUtil.info("Initializing browser type to: '{}'", driverType);
-        switch (driverType.toLowerCase()) {
+        loggerUtil.info("Initializing browser type to: '{}'", browser);
+        switch (browser.toLowerCase()) {
             case Constant.CHROME_BROWSER -> driver = ChromeDriverSetupUtils.initializeChromeDriver();
             case Constant.FIREFOX_BROWSER -> driver = FirefoxDriverSetupUtils.initializeFirefoxDriver();
             default -> {
-                loggerUtil.error("Invalid browser type: '{}'", driverType);
+                loggerUtil.error("Invalid browser type: '{}'", browser);
                 throw new RuntimeException();
             }
         }

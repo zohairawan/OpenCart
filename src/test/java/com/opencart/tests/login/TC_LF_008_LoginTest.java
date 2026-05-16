@@ -27,7 +27,5 @@ public class TC_LF_008_LoginTest extends BaseTest {
         String expectedPasswordFieldPlaceholderText = "Password";
         extentTest.info("Validating password field placeholder text");
         Assert.assertEquals(actualPasswordFieldPlaceholderText, expectedPasswordFieldPlaceholderText);
-
-        extentTest.pass("Email and password placeholder text test passed");
     }
 }

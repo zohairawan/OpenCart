@@ -32,7 +32,5 @@ public class TC_LF_001_LoginTest extends BaseTest {
 
         extentTest.info("Validating successful login - logout link is displayed");
         Assert.assertTrue(accountPage.isLogoutLinkDisplayed());
-
-        extentTest.pass("Valid login test passed");
     }
 }

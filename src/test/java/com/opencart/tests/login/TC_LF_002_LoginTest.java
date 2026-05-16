@@ -24,7 +24,5 @@ public class TC_LF_002_LoginTest extends BaseTest {
         String actualInvalidUserErrorMsg = loginPage.getInvalidUserErrorMsg();
         extentTest.info("Validating error message");
         Assert.assertEquals(actualInvalidUserErrorMsg, expectedInvalidUserErrorMsg);
-
-        extentTest.pass("Invalid login test passed");
     }
 }

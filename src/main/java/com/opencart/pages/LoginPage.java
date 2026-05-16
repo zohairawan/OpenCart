@@ -17,18 +17,19 @@ public class LoginPage extends BasePage {
     }
 
     private void enterEmail(String email) {
-        logger.debug("Entering email");
+        logger.debug("Entering email: {}", email);
         set(email, emailField);
     }
 
     private void enterPassword(String password) {
-        logger.debug("Entering password");
+        logger.debug("Entering password: {}", password);
         set(password, passwordField);
     }
 
     public AccountPage clickLoginButton() {
         logger.debug("Clicking login button");
         click(loginButton);
+        logger.debug("Navigating to Account page");
         return new AccountPage(driver);
     }
 
@@ -45,7 +46,7 @@ public class LoginPage extends BasePage {
     }
 
     public String getInvalidUserErrorMsg() {
-        logger.debug("Getting error message for invalid login credentials");
+        logger.debug("Getting error message for invalid user login");
         return find(invalidUserErrorMsgLoc).getText();
     }
 

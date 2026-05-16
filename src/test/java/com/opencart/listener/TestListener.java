@@ -14,24 +14,33 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentReportUtils.createThreadLocalTest(result.getMethod().getMethodName());
+        String testName = result.getMethod().getMethodName();
+        ExtentReportUtils.createThreadLocalTest(testName);
+        ExtentReportUtils.getThreadLocalTest().info("TEST STARTED: " + testName);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        ExtentReportUtils.getThreadLocalTest().pass(result.getMethod().getMethodName() + " passed");
+        String testName = result.getMethod().getMethodName();
+        ExtentReportUtils.getThreadLocalTest().pass("TEST PASSED: " + testName);
         ExtentReportUtils.unloadThreadLocalTest();
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentReportUtils.getThreadLocalTest().fail(result.getThrowable());
+        String testName = result.getMethod().getMethodName();
+        ExtentReportUtils.getThreadLocalTest().fail("TEST FAILED: " + testName);
+        Throwable error = result.getThrowable();
+        if (error != null) {
+            ExtentReportUtils.getThreadLocalTest().fail(error);
+        }
         ExtentReportUtils.unloadThreadLocalTest();
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        ExtentReportUtils.getThreadLocalTest().skip(result.getMethod().getMethodName() + " skipped");
+        String testName = result.getMethod().getMethodName();
+        ExtentReportUtils.getThreadLocalTest().skip("TEST SKIPPED: " + testName);
         ExtentReportUtils.unloadThreadLocalTest();
     }
 

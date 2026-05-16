@@ -19,5 +19,4 @@
             <package name="com.opencart.tests.login"/>
         </packages>
     </test>
-
 </suite>

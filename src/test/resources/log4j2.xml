@@ -24,13 +24,8 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="com.opencart.tests" level="info" additivity="false">
-            <!--            <AppenderRef ref="RollingFile"/>-->
-            <AppenderRef ref="Console"/>
-        </Logger>
-
         <Logger name="com.opencart.pages" level="debug" additivity="false">
-            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="Console"/>
         </Logger>
 
         <Root level="error">

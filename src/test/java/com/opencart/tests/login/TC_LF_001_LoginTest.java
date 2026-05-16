@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class TC_LF_001_LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"sanity"})
     public void testLoginWithValidCredentials() {
         ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
         extentTest.info("Login test is starting");

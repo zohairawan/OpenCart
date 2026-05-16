@@ -13,6 +13,7 @@ public class AccountSuccessfullyCreatedPage extends BasePage {
     }
 
     public String getAccountSuccessfullyCreatedHeaderText() {
+        logger.debug("Getting Account Successfully Created message");
         return find(accountSuccessfullyCreatedHeader).getText();
     }
 }

@@ -19,16 +19,16 @@ public abstract class BaseTest {
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void setupTest(@Optional String browser) {
-        loggerUtil.info("Initializing browser type");
+        loggerUtil.debug("Initializing browser type");
         WebDriver driver = WebDriverSetupUtils.initializeDriverType(browser);
-        loggerUtil.info("Making browser thread-safe");
+        loggerUtil.debug("Making browser thread-safe");
         DriverManagerUtils.createThreadLocalDriver(driver);
         homePage = new HomePage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDownTest() {
-        loggerUtil.info("Closing browser");
+        loggerUtil.debug("Closing browser");
         WebDriver driver = DriverManagerUtils.getThreadLocalDriver();
         if (driver != null) {
             driver.quit();

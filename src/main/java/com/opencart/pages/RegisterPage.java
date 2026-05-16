@@ -31,35 +31,44 @@ public class RegisterPage extends BasePage {
     }
 
     private void enterFirstName(String firstName) {
+        logger.debug("Entering firstname: {}", firstName);
         set(firstName, firstNameField);
     }
 
     private void enterLastName(String lastName) {
+        logger.debug("Entering lastname: {}", lastName);
         set(lastName, lastNameField);
     }
 
     private void enterEmail(String email) {
+        logger.debug("Entering email: {}", email);
         set(email, emailField);
     }
 
     private void enterTelephone(String telephoneNumber) {
+        logger.debug("Entering telephone number: {}", telephoneNumber);
         set(telephoneNumber, telephoneNumberField);
     }
 
     private void enterPassword(String password) {
+        logger.debug("Entering password: {}", password);
         set(password, passwordField);
     }
 
     private void enterPasswordConfirm(String confirmPassword) {
+        logger.debug("Re-entering password: {}", confirmPassword);
         set(confirmPassword, passwordConfirmField);
     }
 
     private void clickPrivacyPolicyCheckbox() {
+        logger.debug("Clicking privacy policy checkbox");
         click(privacyPolicyCheckbox);
     }
 
     private AccountSuccessfullyCreatedPage clickContinueButton() {
+        logger.debug("Clicking continue button");
         click(continueButton);
+        logger.debug("Navigating to Account Successfully Created page");
         return new AccountSuccessfullyCreatedPage(driver);
     }
 }

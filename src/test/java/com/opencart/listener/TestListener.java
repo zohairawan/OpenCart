@@ -9,6 +9,7 @@ package com.opencart.listener;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.opencart.utilities.report.ExtentReportUtils;
+import org.apache.logging.log4j.ThreadContext;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -30,6 +31,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         String testName = result.getMethod().getMethodName();
+        ThreadContext.put("testName", testName);
         ExtentReportUtils.createTest(testName);
         ExtentReportUtils.getTest().info("TEST STARTED: " + testName);
     }
@@ -39,6 +41,7 @@ public class TestListener implements ITestListener {
         String testName = result.getMethod().getMethodName();
         ExtentReportUtils.getTest().pass("TEST PASSED: " + testName);
         ExtentReportUtils.unloadTest();
+        ThreadContext.clearAll();
     }
 
     @Override
@@ -50,6 +53,7 @@ public class TestListener implements ITestListener {
             ExtentReportUtils.getTest().fail(error);
         }
         ExtentReportUtils.unloadTest();
+        ThreadContext.clearAll();
     }
 
     @Override
@@ -57,6 +61,7 @@ public class TestListener implements ITestListener {
         String testName = result.getMethod().getMethodName();
         ExtentReportUtils.getTest().skip("TEST SKIPPED: " + testName);
         ExtentReportUtils.unloadTest();
+        ThreadContext.clearAll();
     }
 
     @Override

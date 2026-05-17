@@ -26,7 +26,7 @@ public class ScreenshotUtils {
         TakesScreenshot takeScreenshot = (TakesScreenshot) DriverManagerUtils.getDriver();
         File screenshotSourceFile = takeScreenshot.getScreenshotAs(OutputType.FILE);
         String screenshotTimestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        Path screenshotTargetFile = Constant.SCREENSHOTS_FOLDER_PATH.resolve(screenshotTimestamp + ".png");
+        Path screenshotTargetFile = Constant.SCREENSHOTS_FOLDER_PATH.resolve(screenshotTimestamp + Constant.SCREENSHOTS_FILE_EXTENSION);
         try {
             Files.copy(screenshotSourceFile.toPath(), screenshotTargetFile);
         } catch (IOException e) {

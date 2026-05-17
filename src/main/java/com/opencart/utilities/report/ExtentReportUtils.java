@@ -39,7 +39,7 @@ public class ExtentReportUtils {
             }
 
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-            Path extentReportFilePath = Constant.EXTENT_REPORT_FOLDER_PATH.resolve("ExtentReport_" + timestamp + ".html");
+            Path extentReportFilePath = Constant.EXTENT_REPORT_FOLDER_PATH.resolve("ExtentReport_" + timestamp + Constant.EXTENT_REPORT_FILE_EXTENSION);
             String extentReportFileName = extentReportFilePath.toString();
 
             ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(extentReportFileName);

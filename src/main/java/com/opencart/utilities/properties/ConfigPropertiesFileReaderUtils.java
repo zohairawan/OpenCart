@@ -25,7 +25,7 @@ public class ConfigPropertiesFileReaderUtils {
      * - getProperty() is called, it does it once at class load time
      */
     static {
-        try (InputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH)) {
+        try (InputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH.toFile())) {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {

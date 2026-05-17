@@ -12,13 +12,16 @@ import org.openqa.selenium.WebDriver;
 public class DriverManagerUtils {
 
     /*
-     * Why static?
+     * Benefits of ThreadLocal?
      * The WebDriver value stored inside ThreadLocal is isolated per thread,
      * meaning each thread gets its own independent WebDriver instance
      * even though the ThreadLocal itself is shared
      * ThreadLocal = locker room
      * Locker contains WebDriver specific to that thread
      * Threads can access any locker room (ThreadLocal)
+     *
+     * Why is ThreadLocal static?
+     * So it can be globally accessible
      */
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 

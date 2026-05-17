@@ -15,6 +15,14 @@ import java.util.Date;
 public class ScreenshotUtils {
 
     public static void takeScreenshot() {
+        try {
+            Files.createDirectories(Constant.SCREENSHOTS_FILE_PATH);
+        } catch (IOException e) {
+            LogManagerUtils.getLogger(ScreenshotUtils.class).error(
+                    "Failed to create screenshots directory");
+            throw new RuntimeException(e);
+        }
+
         TakesScreenshot screenshot = (TakesScreenshot) DriverManagerUtils.getDriver();
         File screenshotSourceFile = screenshot.getScreenshotAs(OutputType.FILE);
         String screenshotTimestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());

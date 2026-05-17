@@ -44,10 +44,6 @@ public class ConfigPropertiesFileReaderUtils {
         }
     }
 
-    public static String getBrowserValue() {
-        return getValue("browser");
-    }
-
     public static boolean getHeadLessValue() {
         return Boolean.parseBoolean(getValue("headless"));
     }

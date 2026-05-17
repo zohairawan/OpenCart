@@ -13,7 +13,6 @@ import com.opencart.utilities.browser.WebDriverSetupUtils;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public abstract class BaseTest {
@@ -22,7 +21,7 @@ public abstract class BaseTest {
 
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
-    public void setupTest(@Optional String browser) {
+    public void setupTest(String browser) {
         WebDriver driver = WebDriverSetupUtils.initializeDriverType(browser);
         DriverManagerUtils.createThreadLocalDriver(driver);
         homePage = new HomePage(driver);

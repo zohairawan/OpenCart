@@ -8,7 +8,6 @@ package com.opencart.utilities.browser;
 
 import com.opencart.constants.Constant;
 import com.opencart.utilities.logger.LogManagerUtils;
-import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
@@ -16,7 +15,6 @@ public class WebDriverSetupUtils {
 
     public static WebDriver initializeDriverType(String browser) {
         WebDriver driver;
-        browser = (browser == null) ? ConfigPropertiesFileReaderUtils.getBrowserValue() : browser;
 
         Logger loggerUtil = LogManagerUtils.getLogger(WebDriverSetupUtils.class);
         loggerUtil.info("Initializing browser type to: '{}'", browser);

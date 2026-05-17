@@ -4,6 +4,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.opencart.constants.Constant;
+import com.opencart.utilities.logger.LogManagerUtils;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +30,14 @@ public class ExtentReportUtils {
 
     public static ExtentReports createReport() {
         if (extentReport == null) {
+            try {
+                Files.createDirectories(Constant.EXTENT_REPORT_PATH);
+            } catch (IOException e) {
+                LogManagerUtils.getLogger(ExtentReportUtils.class).error(
+                        "Failed to create reports directory");
+                throw new RuntimeException(e);
+            }
+
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
             Path reportFilePath = Constant.EXTENT_REPORT_PATH.resolve("ExtentReport_" + timestamp + ".html");
             String extentReportFileName = reportFilePath.toString();

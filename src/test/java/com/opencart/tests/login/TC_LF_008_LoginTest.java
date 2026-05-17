@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class TC_LF_008_LoginTest extends BaseTest {
 
-    @Test(groups = {"sanity"})
+    @Test(groups = {"sanity", "3"})
     public void testEmailAndPasswordFieldHavePlaceholder() {
         ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
         extentTest.info("Starting email and password placeholder text test");

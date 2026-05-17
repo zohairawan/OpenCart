@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC_LF_002_LoginTest extends BaseTest {
 
-    @Test(groups = {"sanity"})
+    @Test(groups = {"sanity", "2"})
     public void testLoginWithInvalidCredentials() {
         ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
         extentTest.info("Starting invalid login test");

@@ -7,6 +7,7 @@
 package com.opencart.utilities.properties;
 
 import com.opencart.constants.Constant;
+import com.opencart.utilities.logger.LogManagerUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,15 +30,21 @@ public class ConfigPropertiesFileReaderUtils {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("======= FILE DOES NOT EXIST OR INCORRECT PATH TO FILE PROVIDED =======", e);
+            LogManagerUtils.getLogger(ConfigPropertiesFileReaderUtils.class).error(
+                    "config.properties file not found: {}", Constant.CONFIG_PROPERTIES_FILE_PATH.toString());
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException("======= ERROR OCCURRED WHILE READING FROM FILE =======", e);
+            LogManagerUtils.getLogger(ConfigPropertiesFileReaderUtils.class).error(
+                    "Error occurred while reading from config.properties file: {}", Constant.CONFIG_PROPERTIES_FILE_PATH);
+            throw new RuntimeException(e);
         }
     }
 
     private static String getValue(String key) {
         String value = properties.getProperty(key);
         if (value == null) {
+            LogManagerUtils.getLogger(ConfigPropertiesFileReaderUtils.class).error(
+                    "Key [{}] not found in config.properties file", key);
             throw new RuntimeException("Key [" + key + "] not found in config.properties file");
         } else {
             return value;

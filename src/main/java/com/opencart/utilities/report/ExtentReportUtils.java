@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.opencart.constants.Constant;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,7 +28,8 @@ public class ExtentReportUtils {
     public static ExtentReports createReport() {
         if (extentReport == null) {
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-            String extentReportFileName = Constant.EXTENT_REPORT_PATH + "ExtentReport_" + timestamp + ".html";
+            Path reportFilePath = Constant.EXTENT_REPORT_PATH.resolve("ExtentReport_" + timestamp + ".html");
+            String extentReportFileName = reportFilePath.toString();
 
             ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(extentReportFileName);
             extentSparkReport.config().setDocumentTitle("OpenCart Automation Test Report");

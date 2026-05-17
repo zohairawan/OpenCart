@@ -23,17 +23,17 @@ public abstract class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setupTest(String browser) {
         WebDriver driver = WebDriverSetupUtils.initializeDriverType(browser);
-        DriverManagerUtils.createThreadLocalDriver(driver);
+        DriverManagerUtils.setDriver(driver);
         homePage = new HomePage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDownTest() {
-        WebDriver driver = DriverManagerUtils.getThreadLocalDriver();
+        WebDriver driver = DriverManagerUtils.getDriver();
         if (driver != null) {
             driver.quit();
         }
 
-        DriverManagerUtils.unloadThreadLocalDriver();
+        DriverManagerUtils.unloadDriver();
     }
 }

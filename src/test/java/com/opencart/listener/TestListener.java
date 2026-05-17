@@ -18,7 +18,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentReports extentReport = ExtentReportUtils.createAndReturnExtentReport();
+        ExtentReports extentReport = ExtentReportUtils.createReport();
         extentReport.setSystemInfo("Browser", context.getCurrentXmlTest().getParameter("browser"));
 
         List<String> includedGroups = context.getCurrentXmlTest().getIncludedGroups();
@@ -30,33 +30,33 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.createThreadLocalTest(testName);
-        ExtentReportUtils.getThreadLocalTest().info("TEST STARTED: " + testName);
+        ExtentReportUtils.createTest(testName);
+        ExtentReportUtils.getTest().info("TEST STARTED: " + testName);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.getThreadLocalTest().pass("TEST PASSED: " + testName);
-        ExtentReportUtils.unloadThreadLocalTest();
+        ExtentReportUtils.getTest().pass("TEST PASSED: " + testName);
+        ExtentReportUtils.unloadTest();
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.getThreadLocalTest().fail("TEST FAILED: " + testName);
+        ExtentReportUtils.getTest().fail("TEST FAILED: " + testName);
         Throwable error = result.getThrowable();
         if (error != null) {
-            ExtentReportUtils.getThreadLocalTest().fail(error);
+            ExtentReportUtils.getTest().fail(error);
         }
-        ExtentReportUtils.unloadThreadLocalTest();
+        ExtentReportUtils.unloadTest();
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.getThreadLocalTest().skip("TEST SKIPPED: " + testName);
-        ExtentReportUtils.unloadThreadLocalTest();
+        ExtentReportUtils.getTest().skip("TEST SKIPPED: " + testName);
+        ExtentReportUtils.unloadTest();
     }
 
     @Override

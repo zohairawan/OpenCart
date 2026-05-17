@@ -20,17 +20,17 @@ public class DriverManagerUtils {
      * Locker contains WebDriver specific to that thread
      * Threads can access any locker room (ThreadLocal)
      */
-    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    public static void createThreadLocalDriver(WebDriver driver) {
-        driverThreadLocal.set(driver);
+    public static void setDriver(WebDriver driver) {
+        DriverManagerUtils.driver.set(driver);
     }
 
-    public static WebDriver getThreadLocalDriver() {
-        return driverThreadLocal.get();
+    public static WebDriver getDriver() {
+        return driver.get();
     }
 
-    public static void unloadThreadLocalDriver() {
-        driverThreadLocal.remove();
+    public static void unloadDriver() {
+        driver.remove();
     }
 }

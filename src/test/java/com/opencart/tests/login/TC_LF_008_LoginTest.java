@@ -11,7 +11,7 @@ public class TC_LF_008_LoginTest extends BaseTest {
 
     @Test(groups = {"sanity", "3"})
     public void testEmailAndPasswordFieldHavePlaceholder() {
-        ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
+        ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting email and password placeholder text test");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();

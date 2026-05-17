@@ -21,7 +21,7 @@ public class ExtentReportUtils {
      */
     private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
-    public static ExtentReports createAndReturnExtentReport() {
+    public static ExtentReports createReport() {
         if (extentReport == null) {
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
             String extentReportFileName = Constant.EXTENT_REPORT_PATH + "ExtentReport_" + timestamp + ".html";
@@ -39,15 +39,15 @@ public class ExtentReportUtils {
         return extentReport;
     }
 
-    public static void createThreadLocalTest(String testName) {
-        extentTest.set(createAndReturnExtentReport().createTest(testName));
+    public static void createTest(String testName) {
+        extentTest.set(extentReport.createTest(testName));
     }
 
-    public static ExtentTest getThreadLocalTest() {
+    public static ExtentTest getTest() {
         return extentTest.get();
     }
 
-    public static void unloadThreadLocalTest() {
+    public static void unloadTest() {
         extentTest.remove();
     }
 

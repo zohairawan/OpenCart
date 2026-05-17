@@ -12,7 +12,7 @@ public class TC_LF_002_LoginTest extends BaseTest {
 
     @Test(groups = {"sanity", "2"})
     public void testLoginWithInvalidCredentials() {
-        ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
+        ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting invalid login test");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();

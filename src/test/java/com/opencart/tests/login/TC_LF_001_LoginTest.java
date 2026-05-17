@@ -13,7 +13,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
 
     @Test(groups = {"sanity", "1"})
     public void testLoginWithValidCredentials() {
-        ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
+        ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Login test is starting");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();

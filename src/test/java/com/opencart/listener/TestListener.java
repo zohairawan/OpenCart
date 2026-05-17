@@ -7,16 +7,24 @@
 
 package com.opencart.listener;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import java.util.List;
 
 public class TestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentReportUtils.createAndReturnExtentReport();
+        ExtentReports extentReport = ExtentReportUtils.createAndReturnExtentReport();
+        extentReport.setSystemInfo("Browser", context.getCurrentXmlTest().getParameter("browser"));
+
+        List<String> includedGroups = context.getCurrentXmlTest().getIncludedGroups();
+        if (!includedGroups.isEmpty()) {
+            extentReport.setSystemInfo("Groups", includedGroups.toString());
+        }
     }
 
     @Override

@@ -24,14 +24,17 @@ public class ExtentReportUtils {
     public static ExtentReports createAndReturnExtentReport() {
         if (extentReport == null) {
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-            String extentReportPath = Constant.EXTENT_REPORT_PATH + "ExtentReport_" + timestamp + ".html";
+            String extentReportFileName = Constant.EXTENT_REPORT_PATH + "ExtentReport_" + timestamp + ".html";
 
-            ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(extentReportPath);
+            ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(extentReportFileName);
             extentSparkReport.config().setDocumentTitle("OpenCart Automation Test Report");
             extentSparkReport.config().setReportName("Test Execution Report");
 
             extentReport = new ExtentReports();
             extentReport.attachReporter(extentSparkReport);
+            extentReport.setSystemInfo("Application", "OpenCart");
+            extentReport.setSystemInfo("Tester", System.getProperty("user.name"));
+            extentReport.setSystemInfo("Environment", "QA");
         }
         return extentReport;
     }

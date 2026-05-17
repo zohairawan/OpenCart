@@ -8,6 +8,7 @@
 package com.opencart.listener;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.apache.logging.log4j.ThreadContext;
 import org.testng.ITestContext;
@@ -38,19 +39,23 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
+        ExtentTest test = ExtentReportUtils.getTest();
+        test.assignCategory(result.getMethod().getGroups());
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.getTest().pass("TEST PASSED: " + testName);
+        test.pass("TEST PASSED: " + testName);
         ExtentReportUtils.unloadTest();
         ThreadContext.clearAll();
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
+        ExtentTest test = ExtentReportUtils.getTest();
+        test.assignCategory(result.getMethod().getGroups());
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.getTest().fail("TEST FAILED: " + testName);
+        test.fail("TEST FAILED: " + testName);
         Throwable error = result.getThrowable();
         if (error != null) {
-            ExtentReportUtils.getTest().fail(error);
+            test.fail(error);
         }
         ExtentReportUtils.unloadTest();
         ThreadContext.clearAll();
@@ -58,8 +63,10 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
+        ExtentTest test = ExtentReportUtils.getTest();
+        test.assignCategory(result.getMethod().getGroups());
         String testName = result.getMethod().getMethodName();
-        ExtentReportUtils.getTest().skip("TEST SKIPPED: " + testName);
+        test.skip("TEST SKIPPED: " + testName);
         ExtentReportUtils.unloadTest();
         ThreadContext.clearAll();
     }

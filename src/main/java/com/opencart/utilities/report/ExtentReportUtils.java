@@ -31,7 +31,7 @@ public class ExtentReportUtils {
     public static ExtentReports createReport() {
         if (extentReport == null) {
             try {
-                Files.createDirectories(Constant.EXTENT_REPORT_PATH);
+                Files.createDirectories(Constant.EXTENT_REPORT_FOLDER_PATH);
             } catch (IOException e) {
                 LogManagerUtils.getLogger(ExtentReportUtils.class).error(
                         "Failed to create reports directory");
@@ -39,8 +39,8 @@ public class ExtentReportUtils {
             }
 
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-            Path reportFilePath = Constant.EXTENT_REPORT_PATH.resolve("ExtentReport_" + timestamp + ".html");
-            String extentReportFileName = reportFilePath.toString();
+            Path extentReportFilePath = Constant.EXTENT_REPORT_FOLDER_PATH.resolve("ExtentReport_" + timestamp + ".html");
+            String extentReportFileName = extentReportFilePath.toString();
 
             ExtentSparkReporter extentSparkReport = new ExtentSparkReporter(extentReportFileName);
             extentSparkReport.config().setDocumentTitle("OpenCart Automation Test Report");

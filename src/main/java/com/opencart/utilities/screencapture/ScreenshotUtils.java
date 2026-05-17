@@ -16,24 +16,24 @@ public class ScreenshotUtils {
 
     public static void takeScreenshot() {
         try {
-            Files.createDirectories(Constant.SCREENSHOTS_FILE_PATH);
+            Files.createDirectories(Constant.SCREENSHOTS_FOLDER_PATH);
         } catch (IOException e) {
             LogManagerUtils.getLogger(ScreenshotUtils.class).error(
                     "Failed to create screenshots directory");
             throw new RuntimeException(e);
         }
 
-        TakesScreenshot screenshot = (TakesScreenshot) DriverManagerUtils.getDriver();
-        File screenshotSourceFile = screenshot.getScreenshotAs(OutputType.FILE);
+        TakesScreenshot takeScreenshot = (TakesScreenshot) DriverManagerUtils.getDriver();
+        File screenshotSourceFile = takeScreenshot.getScreenshotAs(OutputType.FILE);
         String screenshotTimestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        Path screenshotTargetPath = Constant.SCREENSHOTS_FILE_PATH.resolve(screenshotTimestamp + ".png");
+        Path screenshotTargetFile = Constant.SCREENSHOTS_FOLDER_PATH.resolve(screenshotTimestamp + ".png");
         try {
-            Files.copy(screenshotSourceFile.toPath(), screenshotTargetPath);
+            Files.copy(screenshotSourceFile.toPath(), screenshotTargetFile);
         } catch (IOException e) {
             LogManagerUtils.getLogger(ScreenshotUtils.class).error(
                     "Unable to store screenshot, " +
                             "invalid path to screenshots directory {}",
-                    screenshotTargetPath.toString());
+                    screenshotTargetFile.toString());
         }
     }
 }

@@ -60,6 +60,7 @@ public class TestListener implements ITestListener {
         if (error != null) {
             test.fail(error);
         }
+
         Path screenshot = ScreenshotUtils.takeScreenshot(testName);
         if (screenshot != null) {
             Path relativeScreenshotPath = Constant.EXTENT_REPORT_FOLDER_PATH.relativize(screenshot);

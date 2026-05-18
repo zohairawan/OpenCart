@@ -9,11 +9,14 @@ package com.opencart.listener;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.opencart.constants.Constant;
 import com.opencart.utilities.report.ExtentReportUtils;
+import com.opencart.utilities.screencapture.ScreenshotUtils;
 import org.apache.logging.log4j.ThreadContext;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import java.nio.file.Path;
 import java.util.List;
 
 public class TestListener implements ITestListener {
@@ -56,6 +59,11 @@ public class TestListener implements ITestListener {
         Throwable error = result.getThrowable();
         if (error != null) {
             test.fail(error);
+        }
+        Path screenshot = ScreenshotUtils.takeScreenshot(testName);
+        if (screenshot != null) {
+            Path relativeScreenshotPath = Constant.EXTENT_REPORT_FOLDER_PATH.relativize(screenshot);
+            test.addScreenCaptureFromPath(relativeScreenshotPath.toString().replace("\\", "/"));
         }
         ExtentReportUtils.unloadTest();
         ThreadContext.clearAll();

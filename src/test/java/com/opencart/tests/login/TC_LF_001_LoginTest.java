@@ -11,9 +11,9 @@ import org.testng.annotations.Test;
 
 public class TC_LF_001_LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"sanity", "1"})
     public void testLoginWithValidCredentials() {
-        ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
+        ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Login test is starting");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
@@ -32,7 +32,5 @@ public class TC_LF_001_LoginTest extends BaseTest {
 
         extentTest.info("Validating successful login - logout link is displayed");
         Assert.assertTrue(accountPage.isLogoutLinkDisplayed());
-
-        extentTest.pass("Valid login test passed");
     }
 }

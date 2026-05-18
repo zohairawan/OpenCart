@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Regression Suite">
+<suite name="Groups Suite">
+    <groups>
+        <run>
+            <include name="sanity"/>
+        </run>
+    </groups>
+
     <listeners>
         <listener class-name="com.opencart.listener.TestListener"/>
     </listeners>
-    <test name="Regression Test">
-        <parameter name="browser" value="chrome"/>
+
+    <test name="Groups Test">
+        <parameter name="browser" value="firefox"/>
         <packages>
             <package name="com.opencart.tests.login"/>
         </packages>

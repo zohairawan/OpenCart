@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 
 public class TC_LF_002_LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"sanity", "2"})
     public void testLoginWithInvalidCredentials() {
-        ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
+        ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting invalid login test");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
@@ -24,7 +24,5 @@ public class TC_LF_002_LoginTest extends BaseTest {
         String actualInvalidUserErrorMsg = loginPage.getInvalidUserErrorMsg();
         extentTest.info("Validating error message");
         Assert.assertEquals(actualInvalidUserErrorMsg, expectedInvalidUserErrorMsg);
-
-        extentTest.pass("Invalid login test passed");
     }
 }

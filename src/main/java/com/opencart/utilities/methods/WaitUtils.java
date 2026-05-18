@@ -35,6 +35,16 @@ public class WaitUtils {
                 .until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public void waitForURLToLoad(String url, long waitTimeInSeconds) {
+        getWaitObject(waitTimeInSeconds)
+                .until(ExpectedConditions.urlToBe(url));
+    }
+
+    public void waitForURLToLoad(String url) {
+        getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
+                .until(ExpectedConditions.urlToBe(url));
+    }
+
     private WebDriverWait getWaitObject(long waitTimeInSeconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(waitTimeInSeconds));
     }

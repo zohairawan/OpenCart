@@ -8,7 +8,7 @@
 package com.opencart.tests.base;
 
 import com.opencart.pages.HomePage;
-import com.opencart.utilities.browser.DriverManagerUtils;
+import com.opencart.utilities.browser.WebDriverManagerUtils;
 import com.opencart.utilities.browser.WebDriverSetupUtils;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;
@@ -25,17 +25,17 @@ public abstract class BaseTest {
     public void setupTest(String browser) {
         WebDriver driver = WebDriverSetupUtils.initializeDriverType(browser);
         ThreadContext.put("browser", browser);
-        DriverManagerUtils.setDriver(driver);
+        WebDriverManagerUtils.setDriver(driver);
         homePage = new HomePage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDownTest() {
-        WebDriver driver = DriverManagerUtils.getDriver();
+        WebDriver driver = WebDriverManagerUtils.getDriver();
         if (driver != null) {
             driver.quit();
         }
 
-        DriverManagerUtils.unloadDriver();
+        WebDriverManagerUtils.unloadDriver();
     }
 }

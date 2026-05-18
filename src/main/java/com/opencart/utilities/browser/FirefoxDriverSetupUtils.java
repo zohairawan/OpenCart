@@ -1,6 +1,7 @@
-/**
- * Purpose: Sets up FirefoxDriver by reading the specified options
- * from the config.properties file
+/*
+ * Purpose:
+ * - Sets up FirefoxDriver with the appropriate options
+ *   by reading the specified options from the config.properties file
  */
 
 package com.opencart.utilities.browser;

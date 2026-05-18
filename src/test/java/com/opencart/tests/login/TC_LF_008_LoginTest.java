@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 public class TC_LF_008_LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"sanity", "3"})
     public void testEmailAndPasswordFieldHavePlaceholder() {
-        ExtentTest extentTest = ExtentReportUtils.getThreadLocalTest();
+        ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting email and password placeholder text test");
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
@@ -27,7 +27,5 @@ public class TC_LF_008_LoginTest extends BaseTest {
         String expectedPasswordFieldPlaceholderText = "Password";
         extentTest.info("Validating password field placeholder text");
         Assert.assertEquals(actualPasswordFieldPlaceholderText, expectedPasswordFieldPlaceholderText);
-
-        extentTest.pass("Email and password placeholder text test passed");
     }
 }

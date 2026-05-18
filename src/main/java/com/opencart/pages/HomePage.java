@@ -28,12 +28,14 @@ public class HomePage extends BasePage {
     public RegisterPage clickRegisterLink() {
         logger.debug("Clicking register link");
         click(registerLink);
+        logger.debug("Navigating to Register Account page");
         return new RegisterPage(driver);
     }
 
     public LoginPage clickLoginLink() {
         logger.debug("Clicking login link");
         click(loginLink);
+        logger.debug("Navigating to Login page");
         return new LoginPage(driver);
     }
 

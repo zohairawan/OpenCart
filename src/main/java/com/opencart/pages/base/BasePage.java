@@ -1,3 +1,10 @@
+/*
+ * Purpose:
+ * - Contains all the methods/fields that all pages require
+ * - It's abstract because there should be no reason to create an object,
+ *   it only serves as a collection of methods/fields to be reused by pages
+ */
+
 package com.opencart.pages.base;
 
 import com.opencart.utilities.logger.LogManagerUtils;

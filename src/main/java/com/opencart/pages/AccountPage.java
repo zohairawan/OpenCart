@@ -17,6 +17,7 @@ public class AccountPage extends BasePage {
 
     public String getAccountPageURL() {
         logger.debug("Getting My Account page URL");
+        waitUtils.waitForURLToLoad(URL);
         return driver.getCurrentUrl();
     }
 

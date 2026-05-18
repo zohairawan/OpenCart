@@ -1,6 +1,7 @@
-/**
- * Purpose: Sets up ChromeDriver by reading the specified options
- * from the config.properties file
+/*
+ * Purpose:
+ * - Sets up ChromeDriver with the appropriate options
+ *   by reading the specified options from the config.properties file
  */
 
 package com.opencart.utilities.browser;

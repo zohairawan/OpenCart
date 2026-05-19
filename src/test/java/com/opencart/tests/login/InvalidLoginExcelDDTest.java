@@ -8,9 +8,9 @@ import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class InvalidLoginDDTest extends BaseTest {
+public class InvalidLoginExcelDDTest extends BaseTest {
 
-    @Test(groups = {"demo"}, dataProvider = "invalidLoginData", dataProviderClass = DataProviders.class)
+    @Test(groups = {"demo"}, dataProvider = "invalidLoginDataExcel", dataProviderClass = DataProviders.class)
     public void testInvalidLoginFromExcelFile(String email, String password) {
         ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting invalid login data driven test");

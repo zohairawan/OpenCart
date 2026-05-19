@@ -17,6 +17,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestListener implements ITestListener {
@@ -34,7 +35,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
+        String testName = result.getMethod().getMethodName() + Arrays.toString(result.getParameters());
         ThreadContext.put("testName", testName);
         ExtentReportUtils.createTest(testName);
         ExtentReportUtils.getTest().info("TEST STARTED: " + testName);

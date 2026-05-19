@@ -9,7 +9,7 @@ package com.opencart.utilities.browser;
 
 import org.openqa.selenium.WebDriver;
 
-public class DriverManagerUtils {
+public class WebDriverManagerUtils {
 
     /*
      * Benefits of ThreadLocal?
@@ -26,7 +26,7 @@ public class DriverManagerUtils {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setDriver(WebDriver driver) {
-        DriverManagerUtils.driver.set(driver);
+        WebDriverManagerUtils.driver.set(driver);
     }
 
     public static WebDriver getDriver() {

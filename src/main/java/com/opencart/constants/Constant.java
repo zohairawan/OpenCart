@@ -12,5 +12,6 @@ public class Constant {
     public static final String EXTENT_REPORT_FILE_EXTENSION = ".html";
     public static final Path SCREENSHOTS_FOLDER_PATH = Paths.get(System.getProperty("user.dir"), "screenshots");
     public static final String SCREENSHOTS_FILE_EXTENSION = ".png";
+    public static final String EXCEL_FILE_EXTENSION_XLSX = ".xlsx";
     public static final String URL = "https://tutorialsninja.com/demo/";
 }

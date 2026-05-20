@@ -46,16 +46,18 @@ public class LoginPage extends BasePage {
 
     public String getInvalidUserErrorMsg() {
         logger.debug("Getting error message for invalid user login");
-        return find(invalidUserErrorMsgLoc).getText();
+        return waitUtils.waitForElementToBeVisible(invalidUserErrorMsgLoc).getText();
     }
 
     public String getEmailFieldPlaceholderText() {
         logger.debug("Getting placeholder text for email field");
+        waitUtils.waitForElementToBeVisible(emailField);
         return commonMethodsUtils.getPlaceholderText(emailField);
     }
 
     public String getPasswordFieldPlaceholderText() {
         logger.debug("Getting placeholder text for password field");
+        waitUtils.waitForElementToBeVisible(passwordField);
         return commonMethodsUtils.getPlaceholderText(passwordField);
     }
 }

@@ -1,27 +1,21 @@
 /*
  * Purpose:
- * - Sets up FirefoxDriver with the appropriate options
+ * - Sets up FirefoxOptions with the appropriate options
  *   by reading the specified options from the config.properties file
  */
 
 package com.opencart.utilities.browser;
 
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class FirefoxDriverSetupUtils {
+public class FirefoxOptionsProvider {
 
-    public static WebDriver initializeFirefoxDriver() {
-        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadLessValue();
+    public static FirefoxOptions getFirefoxOptions() {
+        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadlessValue();
         boolean isIncognito = ConfigPropertiesFileReaderUtils.getIncognitoValue();
-
-        if (!isHeadless && !isIncognito) {
-            return new FirefoxDriver();
-        }
-
         FirefoxOptions firefoxOptions = new FirefoxOptions();
+
         if (isHeadless) {
             firefoxOptions.addArguments("-headless");
         }
@@ -30,6 +24,6 @@ public class FirefoxDriverSetupUtils {
             firefoxOptions.addArguments("-private");
         }
 
-        return new FirefoxDriver(firefoxOptions);
+        return firefoxOptions;
     }
 }

@@ -1,6 +1,6 @@
 package com.opencart.utilities.excel;
 
-import com.opencart.constants.Constant;
+import com.opencart.constants.Constants;
 import com.opencart.utilities.logger.LogManagerUtils;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -19,7 +19,7 @@ public class ExcelUtils implements AutoCloseable {
     private static final DataFormatter formatter = new DataFormatter();
 
     public ExcelUtils(String fileName, String sheetName) {
-        String excelFilePath = "testData/" + fileName + Constant.EXCEL_FILE_EXTENSION_XLSX;
+        String excelFilePath = "testData/" + fileName + Constants.EXCEL_FILE_EXTENSION_XLSX;
         try {
             excelFile = ExcelUtils.class.getClassLoader().getResourceAsStream(excelFilePath);
             if (excelFile == null) {

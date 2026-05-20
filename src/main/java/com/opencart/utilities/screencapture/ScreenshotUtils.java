@@ -1,6 +1,6 @@
 package com.opencart.utilities.screencapture;
 
-import com.opencart.constants.Constant;
+import com.opencart.constants.Constants;
 import com.opencart.utilities.browser.WebDriverManagerUtils;
 import com.opencart.utilities.logger.LogManagerUtils;
 import org.openqa.selenium.OutputType;
@@ -17,7 +17,7 @@ public class ScreenshotUtils {
 
     public static Path takeScreenshot(String testName) {
         try {
-            Files.createDirectories(Constant.SCREENSHOTS_FOLDER_PATH);
+            Files.createDirectories(Constants.SCREENSHOTS_FOLDER_PATH);
         } catch (IOException e) {
             LogManagerUtils.getLogger(ScreenshotUtils.class).error(
                     "Failed to create screenshots directory");
@@ -27,7 +27,7 @@ public class ScreenshotUtils {
         TakesScreenshot takeScreenshotTaker = (TakesScreenshot) WebDriverManagerUtils.getDriver();
         File screenshotSourceFile = takeScreenshotTaker.getScreenshotAs(OutputType.FILE);
         String screenshotTimestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        Path screenshotTargetFile = Constant.SCREENSHOTS_FOLDER_PATH.resolve(testName + "_" + screenshotTimestamp + Constant.SCREENSHOTS_FILE_EXTENSION);
+        Path screenshotTargetFile = Constants.SCREENSHOTS_FOLDER_PATH.resolve(testName + "_" + screenshotTimestamp + Constants.SCREENSHOTS_FILE_EXTENSION);
         try {
             return Files.copy(screenshotSourceFile.toPath(), screenshotTargetFile, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

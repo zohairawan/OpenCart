@@ -7,8 +7,6 @@
 package com.opencart.utilities.browser;
 
 import com.opencart.constants.Constants;
-import com.opencart.driver.ChromeDriverProvider;
-import com.opencart.driver.FirefoxDriverProvider;
 import com.opencart.driver.environment.DriverEnvironment;
 import com.opencart.driver.environment.LocalDriverEnvironment;
 import com.opencart.driver.environment.RemoteDriverEnvironment;
@@ -30,11 +28,11 @@ public class DriverFactory {
         switch (browser.toLowerCase()) {
             case Constants.CHROME_BROWSER -> {
                 options = ChromeOptionsProvider.getChromeOptions();
-                return environment.createWebDriver(options, new ChromeDriverProvider());
+                return environment.createWebDriver(options);
             }
             case Constants.FIREFOX_BROWSER -> {
                 options = FirefoxOptionsProvider.getFirefoxOptions();
-                return environment.createWebDriver(options, new FirefoxDriverProvider());
+                return environment.createWebDriver(options);
             }
             default -> {
                 String invalidBrowserMessage = "Invalid browser type: '" + browser + "'";

@@ -1,7 +1,6 @@
 package com.opencart.driver.environment;
 
 import com.opencart.constants.Constants;
-import com.opencart.driver.DriverProvider;
 import com.opencart.utilities.logger.LogManagerUtils;
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.MutableCapabilities;
@@ -14,7 +13,7 @@ import java.net.URL;
 public class RemoteDriverEnvironment implements DriverEnvironment {
 
     @Override
-    public WebDriver createWebDriver(MutableCapabilities options, DriverProvider provider) {
+    public WebDriver createWebDriver(MutableCapabilities options) {
         String os = ConfigPropertiesFileReaderUtils.getOS().toLowerCase();
         switch (os) {
             case Constants.OS_WINDOWS,

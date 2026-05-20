@@ -1,6 +1,6 @@
 package com.opencart.pages;
 
-import com.opencart.constants.Constant;
+import com.opencart.constants.Constants;
 import com.opencart.pages.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +16,8 @@ public class HomePage extends BasePage {
     }
 
     public void open() {
-        logger.debug("Launching application (url: " + Constant.URL + ")");
-        driver.get(Constant.URL);
+        logger.debug("Launching application (url: " + Constants.URL + ")");
+        driver.get(Constants.URL);
     }
 
     public void clickMyAccountDropdown() {

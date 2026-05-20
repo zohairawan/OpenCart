@@ -9,7 +9,7 @@ package com.opencart.listener;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.opencart.constants.Constant;
+import com.opencart.constants.Constants;
 import com.opencart.utilities.report.ExtentReportUtils;
 import com.opencart.utilities.screencapture.ScreenshotUtils;
 import org.apache.logging.log4j.ThreadContext;
@@ -64,7 +64,7 @@ public class TestListener implements ITestListener {
 
         Path screenshot = ScreenshotUtils.takeScreenshot(testName);
         if (screenshot != null) {
-            Path relativeScreenshotPath = Constant.EXTENT_REPORT_FOLDER_PATH.relativize(screenshot);
+            Path relativeScreenshotPath = Constants.EXTENT_REPORT_FOLDER_PATH.relativize(screenshot);
             test.addScreenCaptureFromPath(relativeScreenshotPath.toString().replace("\\", "/"));
         }
         ExtentReportUtils.unloadTest();

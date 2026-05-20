@@ -8,8 +8,8 @@
 package com.opencart.tests.base;
 
 import com.opencart.pages.HomePage;
+import com.opencart.utilities.browser.DriverFactory;
 import com.opencart.utilities.browser.WebDriverManagerUtils;
-import com.opencart.utilities.browser.WebDriverSetupUtils;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -23,9 +23,10 @@ public abstract class BaseTest {
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void setupTest(String browser) {
-        WebDriver driver = WebDriverSetupUtils.initializeDriverType(browser);
-        ThreadContext.put("browser", browser);
+        WebDriver driver = DriverFactory.createDriver(browser);
+        driver.manage().window().maximize();
         WebDriverManagerUtils.setDriver(driver);
+        ThreadContext.put("browser", browser);
         homePage = new HomePage(driver);
     }
 

@@ -1,27 +1,21 @@
 /*
  * Purpose:
- * - Sets up ChromeDriver with the appropriate options
+ * - Sets up ChromeOptions with the appropriate options
  *   by reading the specified options from the config.properties file
  */
 
 package com.opencart.utilities.browser;
 
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ChromeDriverSetupUtils {
+public class ChromeOptionsProvider {
 
-    public static WebDriver initializeChromeDriver() {
-        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadLessValue();
+    public static ChromeOptions getChromeOptions() {
+        boolean isHeadless = ConfigPropertiesFileReaderUtils.getHeadlessValue();
         boolean isIncognito = ConfigPropertiesFileReaderUtils.getIncognitoValue();
-
-        if (!isHeadless && !isIncognito) {
-            return new ChromeDriver();
-        }
-
         ChromeOptions chromeOptions = new ChromeOptions();
+
         if (isHeadless) {
             chromeOptions.addArguments("--headless=new");
         }
@@ -30,6 +24,6 @@ public class ChromeDriverSetupUtils {
             chromeOptions.addArguments("--incognito");
         }
 
-        return new ChromeDriver(chromeOptions);
+        return chromeOptions;
     }
 }

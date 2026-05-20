@@ -6,7 +6,7 @@
 
 package com.opencart.utilities.properties;
 
-import com.opencart.constants.Constant;
+import com.opencart.constants.Constants;
 import com.opencart.utilities.logger.LogManagerUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,16 +26,16 @@ public class ConfigPropertiesFileReaderUtils {
      * - getProperty() is called, it does it once at class load time
      */
     static {
-        try (InputStream fileInputStream = new FileInputStream(Constant.CONFIG_PROPERTIES_FILE_PATH.toFile())) {
+        try (InputStream fileInputStream = new FileInputStream(Constants.CONFIG_PROPERTIES_FILE_PATH.toFile())) {
             properties = new Properties();
             properties.load(fileInputStream);
         } catch (FileNotFoundException e) {
             LogManagerUtils.getLogger(ConfigPropertiesFileReaderUtils.class).error(
-                    "config.properties file not found: {}", Constant.CONFIG_PROPERTIES_FILE_PATH.toString());
+                    "config.properties file not found: {}", Constants.CONFIG_PROPERTIES_FILE_PATH.toString());
             throw new RuntimeException(e);
         } catch (IOException e) {
             LogManagerUtils.getLogger(ConfigPropertiesFileReaderUtils.class).error(
-                    "Error occurred while reading from config.properties file: {}", Constant.CONFIG_PROPERTIES_FILE_PATH);
+                    "Error occurred while reading from config.properties file: {}", Constants.CONFIG_PROPERTIES_FILE_PATH);
             throw new RuntimeException(e);
         }
     }
@@ -51,7 +51,7 @@ public class ConfigPropertiesFileReaderUtils {
         }
     }
 
-    public static boolean getHeadLessValue() {
+    public static boolean getHeadlessValue() {
         return Boolean.parseBoolean(getValue("headless"));
     }
 
@@ -77,5 +77,13 @@ public class ConfigPropertiesFileReaderUtils {
 
     public static String getInvalidPassword() {
         return getValue("invalidPassword");
+    }
+
+    public static String getExecutionEnv() {
+        return getValue("executionEnv");
+    }
+
+    public static String getOS() {
+        return getValue("os");
     }
 }

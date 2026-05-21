@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Parallel Suite">
+<suite name="Parallel Suite" parallel="tests" thread-count="10">
     <listeners>
         <listener class-name="com.opencart.listener.TestListener"/>
     </listeners>
 
-    <test name="Parallel Test" parallel="classes" thread-count="10">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="operatingSystem" value="windows"/>
+    <test name="Parallel Test 1">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="operatingSystem" value="linux"/>
 
-        <packages>
-            <package name="com.opencart.tests.login"/>
-        </packages>
+        <classes>
+            <class name="com.opencart.tests.login.TC_LF_001_LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Parallel Test 2">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="operatingSystem" value="linux"/>
+
+        <classes>
+            <class name="com.opencart.tests.login.TC_LF_002_LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Parallel Test 3">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="operatingSystem" value="linux"/>
+
+        <classes>
+            <class name="com.opencart.tests.login.TC_LF_008_LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Parallel Test 4">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="operatingSystem" value="linux"/>
+
+        <classes>
+            <class name="com.opencart.tests.login.InvalidLoginExcelDDTest"/>
+        </classes>
     </test>
 </suite>

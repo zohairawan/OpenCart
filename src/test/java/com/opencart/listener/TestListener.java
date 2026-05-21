@@ -26,6 +26,7 @@ public class TestListener implements ITestListener {
     public void onStart(ITestContext context) {
         ExtentReports extentReport = ExtentReportUtils.createReport();
         extentReport.setSystemInfo("Browser", context.getCurrentXmlTest().getParameter("browser"));
+        extentReport.setSystemInfo("Operating System", context.getCurrentXmlTest().getParameter("operatingSystem"));
 
         List<String> includedGroups = context.getCurrentXmlTest().getIncludedGroups();
         if (!includedGroups.isEmpty()) {

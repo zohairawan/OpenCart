@@ -33,6 +33,10 @@
             <AppenderRef ref="RollingFile"/>
         </Logger>
 
+        <Logger name="com.opencart.driver" level="debug" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+
         <Root level="error">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="RollingFile"/>

@@ -6,8 +6,9 @@
         <listener class-name="com.opencart.listener.TestListener"/>
     </listeners>
 
-    <test name="Parallel Test" parallel="classes" thread-count="3">
+    <test name="Parallel Test" parallel="classes" thread-count="10">
         <parameter name="browser" value="chrome"/>
+        <parameter name="operatingSystem" value="windows"/>
 
         <packages>
             <package name="com.opencart.tests.login"/>

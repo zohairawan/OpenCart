@@ -2,7 +2,6 @@ package com.opencart.driver.environment;
 
 import com.opencart.constants.Constants;
 import com.opencart.utilities.logger.LogManagerUtils;
-import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,15 +11,21 @@ import java.net.URL;
 
 public class RemoteDriverEnvironment implements DriverEnvironment {
 
+    private final String operatingSystem;
+
+    public RemoteDriverEnvironment(String operatingSystem) {
+        this.operatingSystem = operatingSystem.toLowerCase();
+    }
+
     @Override
     public WebDriver createWebDriver(MutableCapabilities options) {
-        String os = ConfigPropertiesFileReaderUtils.getOS().toLowerCase();
-        switch (os) {
+        LogManagerUtils.getLogger(RemoteDriverEnvironment.class).info("Initializing Operating System type to: '{}'", operatingSystem);
+        switch (operatingSystem) {
             case Constants.OS_WINDOWS,
                  Constants.OS_MAC,
-                 Constants.OS_LINUX -> options.setCapability("platformName", os);
+                 Constants.OS_LINUX -> options.setCapability("platformName", operatingSystem);
             default -> {
-                String invalidOSMessage = "Invalid Operating System type: '" + os + "'";
+                String invalidOSMessage = "Invalid Operating System type: '" + operatingSystem + "'";
                 LogManagerUtils.getLogger(RemoteDriverEnvironment.class).error(invalidOSMessage);
                 throw new IllegalArgumentException(invalidOSMessage);
             }

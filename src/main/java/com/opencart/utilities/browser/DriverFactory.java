@@ -19,12 +19,12 @@ import org.openqa.selenium.WebDriver;
 public class DriverFactory {
 
 
-    public static WebDriver createDriver(String browser) {
+    public static WebDriver createDriver(String browser, String operatingSystem) {
         Logger logger = LogManagerUtils.getLogger(DriverFactory.class);
         logger.info("Initializing browser type to: '{}'", browser);
 
         MutableCapabilities options;
-        DriverEnvironment environment = getEnvironment();
+        DriverEnvironment environment = getEnvironment(operatingSystem);
         switch (browser.toLowerCase()) {
             case Constants.CHROME_BROWSER -> {
                 options = ChromeOptionsProvider.getChromeOptions();
@@ -42,13 +42,13 @@ public class DriverFactory {
         }
     }
 
-    private static DriverEnvironment getEnvironment() {
+    private static DriverEnvironment getEnvironment(String operatingSystem) {
         Logger logger = LogManagerUtils.getLogger(DriverFactory.class);
         String environment = ConfigPropertiesFileReaderUtils.getExecutionEnv().toLowerCase();
         logger.info("Initializing environment type to: '{}'", environment);
         return switch (environment) {
             case Constants.EXECUTION_ENV_LOCAL -> new LocalDriverEnvironment();
-            case Constants.EXECUTION_ENV_REMOTE -> new RemoteDriverEnvironment();
+            case Constants.EXECUTION_ENV_REMOTE -> new RemoteDriverEnvironment(operatingSystem);
             default -> {
                 String invalidEnvironmentMsg = "Invalid environment type: '" + environment + "'";
                 logger.error(invalidEnvironmentMsg);

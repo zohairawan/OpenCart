@@ -20,10 +20,10 @@ public abstract class BaseTest {
 
     protected HomePage homePage;
 
-    @Parameters("browser")
+    @Parameters({"browser", "operatingSystem"})
     @BeforeMethod(alwaysRun = true)
-    public void setupTest(String browser) {
-        WebDriver driver = DriverFactory.createDriver(browser);
+    public void setupTest(String browser, String operatingSystem) {
+        WebDriver driver = DriverFactory.createDriver(browser, operatingSystem);
         driver.manage().window().maximize();
         WebDriverManagerUtils.setDriver(driver);
         ThreadContext.put("browser", browser);

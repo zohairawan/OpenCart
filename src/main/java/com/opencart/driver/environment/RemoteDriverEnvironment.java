@@ -23,7 +23,8 @@ public class RemoteDriverEnvironment implements DriverEnvironment {
         switch (operatingSystem) {
             case Constants.OS_WINDOWS,
                  Constants.OS_MAC,
-                 Constants.OS_LINUX -> options.setCapability("platformName", operatingSystem);
+                 Constants.OS_LINUX,
+                 "" -> options.setCapability("platformName", operatingSystem);
             default -> {
                 String invalidOSMessage = "Invalid Operating System type: '" + operatingSystem + "'";
                 LogManagerUtils.getLogger(RemoteDriverEnvironment.class).error(invalidOSMessage);

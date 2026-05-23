@@ -2,8 +2,10 @@ package com.opencart.tests.login;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.opencart.pages.AccountPage;
+import com.opencart.pages.HomePage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
+import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.Assert;
@@ -15,6 +17,7 @@ public class TC_LF_001_LoginTest extends BaseTest {
     public void testLoginWithValidCredentials() {
         ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Login test is starting");
+        HomePage homePage = new HomePage(DriverManagerUtils.getDriver());
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
 

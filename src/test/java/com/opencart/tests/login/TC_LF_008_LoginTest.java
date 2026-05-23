@@ -1,8 +1,10 @@
 package com.opencart.tests.login;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.opencart.pages.HomePage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
+import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,6 +15,7 @@ public class TC_LF_008_LoginTest extends BaseTest {
     public void testEmailAndPasswordFieldHavePlaceholder() {
         ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting email and password placeholder text test");
+        HomePage homePage = new HomePage(DriverManagerUtils.getDriver());
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
 

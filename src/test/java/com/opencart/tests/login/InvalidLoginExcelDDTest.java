@@ -2,8 +2,10 @@ package com.opencart.tests.login;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.opencart.dataprovider.DataProviders;
+import com.opencart.pages.HomePage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
+import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,6 +16,7 @@ public class InvalidLoginExcelDDTest extends BaseTest {
     public void testInvalidLoginFromExcelFile(String email, String password) {
         ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting invalid login data driven test");
+        HomePage homePage = new HomePage(DriverManagerUtils.getDriver());
         homePage.open();
         LoginPage loginPage = homePage.goToLoginPage();
 

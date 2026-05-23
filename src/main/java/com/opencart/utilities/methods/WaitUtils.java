@@ -12,9 +12,11 @@ public class WaitUtils {
 
     private final long DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS = ConfigPropertiesFileReaderUtils.getExplicitWaitInSeconds();
     private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public WaitUtils(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS));
     }
 
     public WebElement waitForElementToBeVisible(By locator, long waitTimeInSeconds) {
@@ -22,8 +24,7 @@ public class WaitUtils {
     }
 
     public WebElement waitForElementToBeVisible(By locator) {
-        return getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public WebElement waitForElementToBeClickable(By locator, long waitTimeInSeconds) {
@@ -31,8 +32,7 @@ public class WaitUtils {
     }
 
     public WebElement waitForElementToBeClickable(By locator) {
-        return getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
-                .until(ExpectedConditions.elementToBeClickable(locator));
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public void waitForURLToLoad(String url, long waitTimeInSeconds) {
@@ -41,8 +41,7 @@ public class WaitUtils {
     }
 
     public void waitForURLToLoad(String url) {
-        getWaitObject(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS)
-                .until(ExpectedConditions.urlToBe(url));
+        wait.until(ExpectedConditions.urlToBe(url));
     }
 
     private WebDriverWait getWaitObject(long waitTimeInSeconds) {

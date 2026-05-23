@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class TC_LF_008_LoginTest extends BaseTest {
 
-    @Test(groups = {"sanity", "3"})
+    @Test(groups = {"sanity"})
     public void testEmailAndPasswordFieldHavePlaceholder() {
         ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting email and password placeholder text test");

@@ -10,13 +10,12 @@ import java.time.Duration;
 
 public class WaitUtils {
 
-    private final long DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS = ConfigPropertiesFileReaderUtils.getExplicitWaitInSeconds();
     private final WebDriver driver;
     private final WebDriverWait wait;
 
     public WaitUtils(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_EXPLICIT_WAIT_TIME_IN_SECONDS));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigPropertiesFileReaderUtils.getExplicitWaitInSeconds()));
     }
 
     public WebElement waitForElementToBeVisible(By locator, long waitTimeInSeconds) {

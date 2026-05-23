@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class InvalidLoginExcelDDTest extends BaseTest {
 
-    @Test(groups = {"demo"}, dataProvider = "invalidLoginDataExcel", dataProviderClass = DataProviders.class)
+    @Test(groups = {"ddt"}, dataProvider = "invalidLoginDataExcel", dataProviderClass = DataProviders.class)
     public void testInvalidLoginFromExcelFile(String email, String password) {
         ExtentTest extentTest = ExtentReportUtils.getTest();
         extentTest.info("Starting invalid login data driven test");

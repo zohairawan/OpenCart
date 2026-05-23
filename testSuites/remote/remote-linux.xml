@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Temp Suite" thread-count="2" parallel="tests">
+    <groups>
+        <run>
+            <include name="sanity"/>
+            <include name="ddt"/>
+        </run>
+    </groups>
+
+    <listeners>
+        <listener class-name="com.opencart.listener.TestListener"/>
+    </listeners>
+
+    <test name="Temp Test 1">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="operatingSystem" value="linux"/>
+
+        <packages>
+            <package name="com.opencart.tests.login"/>
+        </packages>
+    </test>
+
+    <test name="Temp Test 2">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="operatingSystem" value="linux"/>
+
+        <packages>
+            <package name="com.opencart.tests.login"/>
+        </packages>
+    </test>
+</suite>

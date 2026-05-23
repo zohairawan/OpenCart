@@ -1,7 +1,7 @@
 package com.opencart.utilities.screencapture;
 
 import com.opencart.constants.Constants;
-import com.opencart.utilities.browser.WebDriverManagerUtils;
+import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.logger.LogManagerUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -24,7 +24,7 @@ public class ScreenshotUtils {
             throw new RuntimeException(e);
         }
 
-        TakesScreenshot takeScreenshotTaker = (TakesScreenshot) WebDriverManagerUtils.getDriver();
+        TakesScreenshot takeScreenshotTaker = (TakesScreenshot) DriverManagerUtils.getDriver();
         File screenshotSourceFile = takeScreenshotTaker.getScreenshotAs(OutputType.FILE);
         String screenshotTimestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
         Path screenshotTargetFile = Constants.SCREENSHOTS_FOLDER_PATH.resolve(testName + "_" + screenshotTimestamp + Constants.SCREENSHOTS_FILE_EXTENSION);

@@ -53,6 +53,7 @@ docker
 logs
 reports
 screenshots
+testSuites
 |-- src
 |   |-- main
 |   |   |-- constants

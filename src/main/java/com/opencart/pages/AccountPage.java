@@ -38,4 +38,13 @@ public class AccountPage extends BasePage {
             return false;
         }
     }
+
+    public AccountLogoutPage clickLogoutLink() {
+        if (isLogoutLinkDisplayed()) {
+            logger.debug("Clicking logout link");
+            click(logoutLink);
+            return new AccountLogoutPage(driver);
+        }
+        return null;
+    }
 }

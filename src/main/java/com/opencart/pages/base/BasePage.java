@@ -7,6 +7,7 @@
 
 package com.opencart.pages.base;
 
+import com.opencart.pages.components.HeaderComponent;
 import com.opencart.utilities.logger.LogManagerUtils;
 import com.opencart.utilities.methods.JavascriptUtils;
 import com.opencart.utilities.methods.WaitUtils;
@@ -22,12 +23,14 @@ public abstract class BasePage {
     protected JavascriptUtils javascriptUtils;
     protected WaitUtils waitUtils;
     protected final Logger logger;
+    private final HeaderComponent header;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.javascriptUtils = new JavascriptUtils(driver);
+        javascriptUtils = new JavascriptUtils(driver);
         waitUtils = new WaitUtils(driver);
         logger = LogManagerUtils.getLogger(this.getClass());
+        header = new HeaderComponent(driver);
     }
 
     protected WebElement find(By locator) {
@@ -62,5 +65,9 @@ public abstract class BasePage {
 
     protected String getPlaceholderText(By locator) {
         return driver.findElement((locator)).getDomAttribute("placeholder");
+    }
+
+    public HeaderComponent header() {
+        return header;
     }
 }

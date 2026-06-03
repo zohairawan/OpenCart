@@ -51,6 +51,10 @@ public abstract class BasePage {
         find(locator).sendKeys(text);
     }
 
+    protected String textOf(By locator) {
+        return find(locator).getText();
+    }
+
     protected void click(By locator) {
         waitUtils.waitForElementToBeClickable(locator).click();
     }

@@ -8,7 +8,6 @@
 package com.opencart.pages.base;
 
 import com.opencart.utilities.logger.LogManagerUtils;
-import com.opencart.utilities.methods.CommonMethodsForAllPages;
 import com.opencart.utilities.methods.JavascriptUtils;
 import com.opencart.utilities.methods.WaitUtils;
 import org.apache.logging.log4j.Logger;
@@ -20,14 +19,12 @@ import java.util.List;
 public abstract class BasePage {
 
     protected WebDriver driver;
-    protected CommonMethodsForAllPages commonMethodsForAllPages;
     protected JavascriptUtils javascriptUtils;
     protected WaitUtils waitUtils;
     protected final Logger logger;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        commonMethodsForAllPages = new CommonMethodsForAllPages(driver);
         this.javascriptUtils = new JavascriptUtils(driver);
         waitUtils = new WaitUtils(driver);
         logger = LogManagerUtils.getLogger(this.getClass());
@@ -61,5 +58,9 @@ public abstract class BasePage {
 
     protected void click(By locator, long waitTimeInSeconds) {
         waitUtils.waitForElementToBeClickable(locator, waitTimeInSeconds).click();
+    }
+
+    protected String getPlaceholderText(By locator) {
+        return driver.findElement((locator)).getDomAttribute("placeholder");
     }
 }

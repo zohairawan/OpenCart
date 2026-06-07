@@ -1,7 +1,7 @@
 package com.opencart.utilities.screencapture;
 
 import com.opencart.constants.Constants;
-import com.opencart.utilities.browser.DriverManagerUtils;
+import com.opencart.driver.DriverManagerUtils;
 import com.opencart.utilities.logger.LogManagerUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

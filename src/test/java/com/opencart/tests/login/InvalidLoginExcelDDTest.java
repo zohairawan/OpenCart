@@ -2,10 +2,10 @@ package com.opencart.tests.login;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.opencart.dataprovider.DataProviders;
+import com.opencart.driver.DriverManagerUtils;
 import com.opencart.pages.HomePage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
-import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;

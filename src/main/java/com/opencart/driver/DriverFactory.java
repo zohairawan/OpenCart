@@ -4,9 +4,11 @@
  *   from the config.properties file
  */
 
-package com.opencart.utilities.browser;
+package com.opencart.driver;
 
 import com.opencart.constants.Constants;
+import com.opencart.driver.browser_options.ChromeOptionsProvider;
+import com.opencart.driver.browser_options.FirefoxOptionsProvider;
 import com.opencart.driver.environment.DriverEnvironment;
 import com.opencart.driver.environment.LocalDriverEnvironment;
 import com.opencart.driver.environment.RemoteDriverEnvironment;

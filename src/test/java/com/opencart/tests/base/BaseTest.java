@@ -7,8 +7,8 @@
 
 package com.opencart.tests.base;
 
-import com.opencart.utilities.browser.DriverFactory;
-import com.opencart.utilities.browser.DriverManagerUtils;
+import com.opencart.driver.DriverFactory;
+import com.opencart.driver.DriverManagerUtils;
 import com.opencart.utilities.logger.LogManagerUtils;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;

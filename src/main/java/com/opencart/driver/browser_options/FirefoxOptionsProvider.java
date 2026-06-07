@@ -4,7 +4,7 @@
  *   by reading the specified options from the config.properties file
  */
 
-package com.opencart.utilities.browser;
+package com.opencart.driver.browser_options;
 
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import org.openqa.selenium.firefox.FirefoxOptions;

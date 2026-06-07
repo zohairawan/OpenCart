@@ -1,12 +1,12 @@
 package com.opencart.tests.logout;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.opencart.driver.DriverManagerUtils;
 import com.opencart.pages.AccountLogoutPage;
 import com.opencart.pages.AccountPage;
 import com.opencart.pages.HomePage;
 import com.opencart.pages.LoginPage;
 import com.opencart.tests.base.BaseTest;
-import com.opencart.utilities.browser.DriverManagerUtils;
 import com.opencart.utilities.properties.ConfigPropertiesFileReaderUtils;
 import com.opencart.utilities.report.ExtentReportUtils;
 import org.testng.Assert;

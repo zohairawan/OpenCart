@@ -5,7 +5,7 @@
  * - Prevents driver collision during parallel execution
  */
 
-package com.opencart.utilities.browser;
+package com.opencart.driver;
 
 import org.openqa.selenium.WebDriver;
 

@@ -1,10 +1,10 @@
 package com.opencart.tests.register;
 
+import com.opencart.driver.DriverManagerUtils;
 import com.opencart.pages.AccountSuccessfullyCreatedPage;
 import com.opencart.pages.HomePage;
 import com.opencart.pages.RegisterPage;
 import com.opencart.tests.base.BaseTest;
-import com.opencart.utilities.browser.DriverManagerUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -1,10 +1,8 @@
 # OpenCart - UI automation framework
-
 - A scalable UI test automation framework for an e-commerce platform built using Java, Selenium WebDriver, TestNG,
   Maven, Docker, and Selenium Grid
 
 ## Core Capabilities
-
 - Cross operating-system / cross-browser testing
 - Thread-safe parallel execution
 - Local and remote execution support
@@ -29,7 +27,6 @@
 - Configuration Management: `TestNG XML & .properties file`
 
 ## Framework Features
-
 - Thread-safe parallel execution
 - Cross-operating-system / cross-browser support
 - Local and Remote execution environments
@@ -46,7 +43,83 @@
 - Log4j2 logging
 - XML-driven browser and operating system configuration
 
-## Framework Architecture (Brief Overview)
+## Framework Architecture
+
+### Base Layer
+
+#### Base Test
+
+- WebDriver initialization
+- Browser and Environment (local/remote) configuration
+- Setup & Teardown methods
+- Every test inherits from the `BaseTest` class
+
+#### Base Page
+
+- Provides reusable page methods and objects
+    - `findElement()`,`click()`, `sendKeys()`, etc...
+    - Waits, Logger, JavaScript methods, etc...
+- Every Page class inherits from the `BasePage`
+
+### Page Layer
+
+- Page Object Model (POM) implementation
+- Separate page classes with encapsulated locators
+- Clear separation between test logic and UI interactions
+
+### Component Layer
+
+- Reusable UI components shared across pages
+- Encapsulates common page sections (Header)
+- Reduces duplication and improves maintainability
+
+### Driver & Execution Layer
+
+- Local / Remote execution support
+- Selenium Grid integration
+- Dockerized browser nodes
+- Thread-safe WebDriver management using ThreadLocal
+- Parallel cross-browser execution
+
+### Test Layer
+
+- TestNG based test suites
+- XML-driven execution
+- Group-based test execution
+- Data-driven testing using Excel and Data Providers
+
+### Utility Layer
+
+- Screenshot handling
+- Wait handling
+- Excel data handling
+- Log4j2 handling
+- ExtentReports handling
+- Properties file reading/handling
+
+### Test Data Layer
+
+- Excel / Properties
+- Data-Driven testing
+
+### Reporting / Logging Layer
+
+- ExtentReports
+- Screenshots on failure
+- Log4j2
+- Execution logs
+
+### CI Integration
+
+- Jenkins pipeline execution
+- Maven-based build and test execution
+
+### Design Patterns
+
+- Page Object Model (POM)
+- Factory Pattern
+- Strategy Pattern
+- Component Object Pattern
 
 ```text
 docker
@@ -58,13 +131,23 @@ testSuites
 |   |-- main
 |   |   |-- constants
 |   |   |-- driver
+|   |       |-- browser_options
 |   |       |-- environment
 |   |   |-- pages
 |   |   |-- utilities
+|   |       |-- excel
+|   |       |-- logger
+|   |       |-- methods
+|   |       |-- properties
+|   |       |-- reports
+|   |       |-- screencapture
 |   |-- test
 |       |-- dataprovider
 |       |-- listener
 |       |-- tests
+|       |-- resources
+|   |       |-- config
+|   |       |-- testData
 ```
 
 ## How To Run

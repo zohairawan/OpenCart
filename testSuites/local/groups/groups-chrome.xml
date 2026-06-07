@@ -12,7 +12,7 @@
         <listener class-name="com.opencart.listener.TestListener"/>
     </listeners>
 
-    <test name="Groups Test">
+    <test name="Groups Test Chrome">
         <parameter name="browser" value="chrome"/>
         <parameter name="operatingSystem" value="windows"/>
 

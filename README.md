@@ -1,8 +1,10 @@
 # OpenCart - UI automation framework
+
 - A scalable UI test automation framework for an e-commerce platform built using Java, Selenium WebDriver, TestNG,
   Maven, Docker, and Selenium Grid
 
 ## Core Capabilities
+
 - Cross operating-system / cross-browser testing
 - Thread-safe parallel execution
 - Local and remote execution support
@@ -14,6 +16,7 @@
 - Screenshots on test failure
 
 ## Tools/Technologies Used
+
 - Programming Language: `Java`
 - Build Tool: `Maven`
 - CI: `Jenkins`
@@ -27,6 +30,7 @@
 - Configuration Management: `TestNG XML & .properties file`
 
 ## Framework Features
+
 - Thread-safe parallel execution
 - Cross-operating-system / cross-browser support
 - Local and Remote execution environments
@@ -154,7 +158,7 @@ testSuites
 
 ### Pre-Requisites
 
-- `Java, Maven, Selenium Grid, and Docker` installed
+- `Java 16 or higher, Maven, Selenium Grid, and Docker` installed
 
 #### Clone project
 
